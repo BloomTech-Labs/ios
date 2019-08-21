@@ -9,10 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var testLabel: UILabel!
+    
+    var testController = TestController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        testController.fetchTestData { (error) in
+            if let error = error {
+                NSLog("Error: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                self.testLabel.text = self.testController.testString
+            }
+        }
+
     }
 
 

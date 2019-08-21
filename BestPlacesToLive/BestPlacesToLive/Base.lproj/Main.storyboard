@@ -28,17 +28,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zY-rx-nKl">
+                                <rect key="frame" x="186" y="404" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nah-5T-zD6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8rR-KY-Vc7"/>
+                            <constraint firstItem="Nah-5T-zD6" firstAttribute="top" secondItem="8zY-rx-nKl" secondAttribute="bottom" constant="8" id="9SF-Gi-2RC"/>
                             <constraint firstItem="QpG-fz-GKB" firstAttribute="top" secondItem="Nah-5T-zD6" secondAttribute="bottom" constant="8" id="K2o-N9-gqp"/>
                             <constraint firstItem="QpG-fz-GKB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="159" id="MUw-Ya-fH4"/>
                             <constraint firstItem="Nah-5T-zD6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="afm-lB-NC4"/>
+                            <constraint firstItem="8zY-rx-nKl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g7p-9R-F3n"/>
                             <constraint firstItem="QpG-fz-GKB" firstAttribute="centerX" secondItem="Nah-5T-zD6" secondAttribute="centerX" id="iiB-K0-ycN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="testLabel" destination="8zY-rx-nKl" id="52W-7p-FKS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

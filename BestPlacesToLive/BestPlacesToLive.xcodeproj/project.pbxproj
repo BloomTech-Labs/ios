@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422D6F1C230DDE39006A2C47 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D6F1B230DDE39006A2C47 /* TestController.swift */; };
 		427B73F02306111D0070C334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B73EF2306111D0070C334 /* AppDelegate.swift */; };
 		427B73F22306111D0070C334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B73F12306111D0070C334 /* ViewController.swift */; };
 		427B73F52306111D0070C334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F32306111D0070C334 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422D6F1B230DDE39006A2C47 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		427B73EC2306111D0070C334 /* BestPlacesToLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestPlacesToLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427B73EF2306111D0070C334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427B73F12306111D0070C334 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				427B73EF2306111D0070C334 /* AppDelegate.swift */,
 				427B73F12306111D0070C334 /* ViewController.swift */,
+				422D6F1B230DDE39006A2C47 /* TestController.swift */,
 				427B73F32306111D0070C334 /* Main.storyboard */,
 				427B73F62306111E0070C334 /* Assets.xcassets */,
 				427B73F82306111E0070C334 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422D6F1C230DDE39006A2C47 /* TestController.swift in Sources */,
 				427B73F22306111D0070C334 /* ViewController.swift in Sources */,
 				427B73F02306111D0070C334 /* AppDelegate.swift in Sources */,
 			);
