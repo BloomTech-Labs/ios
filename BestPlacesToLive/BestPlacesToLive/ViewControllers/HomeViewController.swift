@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let networkController = NetworkingController()
+    let transition = SlideInTransition()
     
     
     @IBOutlet weak var cityCollectionView: UICollectionView!
@@ -21,12 +22,17 @@ class HomeViewController: UIViewController {
         
         self.cityCollectionView.delegate = self
         
+    }
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        guard let menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
+        menuTableViewController.modalPresentationStyle = .overCurrentContext
+        menuTableViewController.transitioningDelegate = self
+        present(menuTableViewController, animated: true)
         
-
         
     }
     
-
     
     
     /*
@@ -64,5 +70,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         
         return cell
+    }
+}
+
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
     }
 }
