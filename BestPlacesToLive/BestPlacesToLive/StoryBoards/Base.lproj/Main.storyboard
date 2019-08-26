@@ -10,6 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="WDK-gK-O8y">
+            <objects>
+                <viewController id="iHX-9L-htF" customClass="LoginViewController" customModule="BestPlacesToLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w5T-QU-mCS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="SrB-xD-P3K">
+                                <rect key="frame" x="32" y="387" width="350" height="122"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-ew-uDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lgx-c1-06H">
+                                        <rect key="frame" x="0.0" y="46" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly8-vj-qjn">
+                                        <rect key="frame" x="0.0" y="92" width="350" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SrB-xD-P3K" firstAttribute="centerY" secondItem="w5T-QU-mCS" secondAttribute="centerY" id="4ru-77-5ij"/>
+                            <constraint firstItem="SrB-xD-P3K" firstAttribute="leading" secondItem="81j-hT-5bj" secondAttribute="leading" constant="32" id="OLY-gD-J7p"/>
+                            <constraint firstItem="SrB-xD-P3K" firstAttribute="centerX" secondItem="w5T-QU-mCS" secondAttribute="centerX" id="Tyh-wJ-f1q"/>
+                            <constraint firstItem="81j-hT-5bj" firstAttribute="trailing" secondItem="SrB-xD-P3K" secondAttribute="trailing" constant="32" id="t1E-uc-x6h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="81j-hT-5bj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1CO-rF-wab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="773"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -161,7 +205,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq9-QD-vpr">
-                                                    <rect key="frame" x="16" y="97.5" width="398" height="2"/>
+                                                    <rect key="frame" x="16" y="98" width="398" height="2"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="rM3-lg-cKf"/>
@@ -200,7 +244,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdq-GL-tfX">
-                                                    <rect key="frame" x="16" y="97.5" width="398" height="2"/>
+                                                    <rect key="frame" x="16" y="98" width="398" height="2"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="YIo-MB-nfj"/>
@@ -239,7 +283,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOn-dl-9ju">
-                                                    <rect key="frame" x="16" y="97.5" width="398" height="2"/>
+                                                    <rect key="frame" x="16" y="98" width="398" height="2"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="prw-tR-xY2"/>
@@ -256,6 +300,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="xOn-dl-9ju" secondAttribute="trailing" id="uim-sj-NaR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iHX-9L-htF" kind="show" id="USC-ts-MAn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

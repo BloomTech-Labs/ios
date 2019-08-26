@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		424FE85723148D4600088332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424FE85623148D4600088332 /* LoginViewController.swift */; };
 		427B73F02306111D0070C334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B73EF2306111D0070C334 /* AppDelegate.swift */; };
 		427B73F52306111D0070C334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F32306111D0070C334 /* Main.storyboard */; };
 		427B73F72306111E0070C334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F62306111E0070C334 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		424FE85623148D4600088332 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		427B73EC2306111D0070C334 /* BestPlacesToLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestPlacesToLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427B73EF2306111D0070C334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427B73F42306111D0070C334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA80937230EF97700DC61EE /* HomeViewController.swift */,
+				424FE85623148D4600088332 /* LoginViewController.swift */,
 				42F8B7B123104D6A00EB999D /* MenuTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424FE85723148D4600088332 /* LoginViewController.swift in Sources */,
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
