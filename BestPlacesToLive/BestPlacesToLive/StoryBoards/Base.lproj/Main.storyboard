@@ -31,28 +31,49 @@
                                         <rect key="frame" x="0.0" y="46" width="350" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly8-vj-qjn">
                                         <rect key="frame" x="0.0" y="92" width="350" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="iHX-9L-htF" eventType="touchUpInside" id="Rf1-I7-F5h"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="J1C-ny-4E5">
+                                <rect key="frame" x="144.5" y="343" width="125" height="29"/>
+                                <segments>
+                                    <segment title="Sign Up"/>
+                                    <segment title="Sign In"/>
+                                </segments>
+                                <connections>
+                                    <action selector="signInTypeChanged:" destination="iHX-9L-htF" eventType="valueChanged" id="exr-oE-dcM"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="J1C-ny-4E5" firstAttribute="centerX" secondItem="w5T-QU-mCS" secondAttribute="centerX" id="1zD-ok-VPF"/>
                             <constraint firstItem="SrB-xD-P3K" firstAttribute="centerY" secondItem="w5T-QU-mCS" secondAttribute="centerY" id="4ru-77-5ij"/>
+                            <constraint firstItem="SrB-xD-P3K" firstAttribute="top" secondItem="J1C-ny-4E5" secondAttribute="bottom" constant="16" id="Efv-oK-KHv"/>
                             <constraint firstItem="SrB-xD-P3K" firstAttribute="leading" secondItem="81j-hT-5bj" secondAttribute="leading" constant="32" id="OLY-gD-J7p"/>
                             <constraint firstItem="SrB-xD-P3K" firstAttribute="centerX" secondItem="w5T-QU-mCS" secondAttribute="centerX" id="Tyh-wJ-f1q"/>
                             <constraint firstItem="81j-hT-5bj" firstAttribute="trailing" secondItem="SrB-xD-P3K" secondAttribute="trailing" constant="32" id="t1E-uc-x6h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="81j-hT-5bj"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="ly8-vj-qjn" id="24d-xX-VJp"/>
+                        <outlet property="loginTypeSegmentedControl" destination="J1C-ny-4E5" id="niw-V7-K1r"/>
+                        <outlet property="passwordTextField" destination="Lgx-c1-06H" id="Ay1-m9-vwb"/>
+                        <outlet property="usernameTextField" destination="QgC-ew-uDy" id="JeV-8e-Ecc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CO-rF-wab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="773"/>
+            <point key="canvasLocation" x="1709" y="838"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
