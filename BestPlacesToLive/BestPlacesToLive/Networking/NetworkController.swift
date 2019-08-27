@@ -10,8 +10,9 @@ import Foundation
 
 class NetworkingController {
     
-    private let baseURL = URL(string: "https://167.71.246.208:3001/")!
+    private let baseURL = URL(string: " ")!
     var cities: [City] = []
+    var categories = ["Income", "Crime", "Weather", "School"]
     
     func getTopCities(completion: @escaping (Error?) -> Void) {
         
