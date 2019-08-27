@@ -14,4 +14,10 @@ struct City: Codable, Equatable {
     var id: String
     var name: String
     
+    enum CodingKeys: String, CodingKey {
+        
+        case id  = "_id"
+        case name
+    }
+    
     }

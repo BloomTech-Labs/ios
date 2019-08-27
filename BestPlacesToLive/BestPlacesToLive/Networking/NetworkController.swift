@@ -10,9 +10,21 @@ import Foundation
 
 class NetworkingController {
     
-    private let baseURL = URL(string: " ")!
+    init() {
+        getTopCities { (error) in
+            if let error = error {
+                NSLog("Error fetching topTenCities: \(error)")
+                return
+            }
+        }
+    }
+    
+    private let baseURL = URL(string: "https://demo0969329.mockable.io/topten")!
     var cities: [City] = []
-    var categories = ["Income", "Crime", "Weather", "School"]
+    var categories = [CityCategory(category: "Income"),
+                       CityCategory(category: "Crime"),
+                       CityCategory(category: "Weather"),
+                        CityCategory(category: "School")]
     
     func getTopCities(completion: @escaping (Error?) -> Void) {
         

@@ -23,6 +23,9 @@ class HomeViewController: UIViewController {
         
         self.cityCollectionView.delegate = self
         self.categorieCollectionView.delegate = self
+        self.cityCollectionView.dataSource = self
+        self.categorieCollectionView.dataSource = self
+        
         
     }
     
@@ -67,7 +70,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == self.cityCollectionView {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError("City Collection Cell failed to return Data") }
         
-        let city = networkController.cities[indexPath.row]
+        let city = networkController.cities[indexPath.item]
+            
+            cell.nameLabel.text = city.name
+          //  cell.nameLabel.text = city.name
+            
     
         
         
@@ -78,8 +85,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
             guard let categorieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCollectionViewCell else { fatalError("Category Collection Cell failed to return Data")}
             
-            let category = networkController.categories[indexPath.row]
-            categorieCell.catoryNameLabel.text = category
+            let category = networkController.categories[indexPath.item]
+          //  categorieCell.category = category
+            categorieCell.catoryNameLabel.text = category.category
             
             
             
@@ -87,8 +95,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return categorieCell
     }
     
-   
-}
+   }
+    
 }
 
 

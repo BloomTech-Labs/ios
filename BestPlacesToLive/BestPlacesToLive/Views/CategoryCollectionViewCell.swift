@@ -10,11 +10,29 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    var category: CityCategory? {
+       didSet {
+          //  updateViews()
+        }
+    }
+    
     
     @IBOutlet weak var categoryImageView: UIImageView!
     
     @IBOutlet weak var catoryNameLabel: UILabel!
     
+/*
+    private func updateViews() {
+        
+        if let categoryName = catoryNameLabel.text {
+        
+        category?.category = categoryName
+            
+        }
+        
+        
+    }
+ */
     
     
   

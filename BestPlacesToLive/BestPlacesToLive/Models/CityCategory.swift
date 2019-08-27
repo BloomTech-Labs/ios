@@ -10,5 +10,5 @@ import Foundation
 
 struct CityCategory {
 
-    var category: [String]
+    var category: String
 }
