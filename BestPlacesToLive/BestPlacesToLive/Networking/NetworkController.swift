@@ -21,10 +21,10 @@ class NetworkingController {
     
     private let baseURL = URL(string: "https://demo0969329.mockable.io/topten")!
     var cities: [City] = []
-    var categories = [CityCategory(category: "Income"),
-                       CityCategory(category: "Crime"),
-                       CityCategory(category: "Weather"),
-                        CityCategory(category: "School")]
+    var categories = [CityCategory(category: "Income", imageName: "Income"),
+                       CityCategory(category: "Crime", imageName: "Crime"),
+                       CityCategory(category: "Weather", imageName: "Weather"),
+                        CityCategory(category: "School", imageName: "School")]
     
     func getTopCities(completion: @escaping (Error?) -> Void) {
         

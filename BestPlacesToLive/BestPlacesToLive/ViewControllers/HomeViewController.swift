@@ -69,8 +69,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         if collectionView == self.cityCollectionView {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError("City Collection Cell failed to return Data") }
+            
+            networkController.getTopCities { (error) in
+                if let error = error {
+                    NSLog("Error fetching top 10 Cities: \(error)")
         
-        let city = networkController.cities[indexPath.item]
+                    let city = self.networkController.cities[indexPath.item]
             
             cell.nameLabel.text = city.name
           //  cell.nameLabel.text = city.name
@@ -79,6 +83,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         
         cell.city = city
+                }
+            }
         
         return cell
     } else {
@@ -88,6 +94,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let category = networkController.categories[indexPath.item]
           //  categorieCell.category = category
             categorieCell.catoryNameLabel.text = category.category
+            categorieCell.catoryNameLabel.textColor = .white
+            categorieCell.alpha = 0.8
+           categorieCell.categoryImageView.image = category.image
+            
+            categorieCell.layer.cornerRadius = 20.0
+            
+            
             
             
             

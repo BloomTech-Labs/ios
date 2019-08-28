@@ -20,4 +20,9 @@ struct City: Codable, Equatable {
         case name
     }
     
+    init(name: String, id: String = UUID().uuidString) {
+        self.id = id
+        self.name = name
+    }
+    
     }

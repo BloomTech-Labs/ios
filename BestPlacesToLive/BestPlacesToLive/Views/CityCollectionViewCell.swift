@@ -12,7 +12,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     
     var city: City? {
         didSet {
-            updateViews()
+          //  updateViews()
         }
     }
     
@@ -21,6 +21,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityImageView: UIView!
     
+    /*
     private func updateViews() {
     
         guard let cityName = nameLabel.text else { return }
@@ -28,4 +29,6 @@ class CityCollectionViewCell: UICollectionViewCell {
         
         
     }
+ */
+    
 }

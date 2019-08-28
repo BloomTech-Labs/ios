@@ -7,8 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 struct CityCategory {
+    
+    init(category: String, imageName: String) {
+        self.category = category
+        self.image = UIImage(named: imageName)!
+    }
 
     var category: String
+    var image: UIImage
 }
