@@ -28,7 +28,7 @@ class NetworkingController {
             }
             
             guard let data = data else {
-                NSLog("Bad data from task: \(error)")
+                NSLog("Error: No data returned or bad data")
                 completion(NSError())
                 return
             }

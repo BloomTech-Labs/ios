@@ -18,22 +18,29 @@ class LoginViewController: UIViewController {
     var loginController = LoginController()
     var loginType = LoginType.signUp
 
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var password2TextField: UITextField!
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        if let username = usernameTextField.text,
-            !username.isEmpty,
+        if let name = usernameTextField.text,
+            !name.isEmpty,
+            let email = emailTextField.text,
+            !email.isEmpty,
             let password = passwordTextField.text,
-            !password.isEmpty {
-            let user = User(username: username, password: password)
+            !password.isEmpty,
+            let password2 = password2TextField.text,
+            !password2.isEmpty {
+            let user = User(name: name, email: email, password: password, password2: password2)
             if loginType == .signUp {
                 loginController.signUp(with: user) { (error) in
                     if let error = error {
                         // Maybe add an alert here
+                        // Use message object being returned with error
                         print("Error occured during sign up: \(error)")
                     } else {
                         DispatchQueue.main.async {
@@ -44,6 +51,8 @@ class LoginViewController: UIViewController {
                                 self.loginType = .signIn
                                 self.loginTypeSegmentedControl.selectedSegmentIndex = 1
                                 self.loginButton.setTitle("Sign In", for: .normal)
+                                self.usernameTextField.isHidden = true
+                                self.password2TextField.isHidden = true
                             })
                         }
                     }
@@ -52,7 +61,7 @@ class LoginViewController: UIViewController {
                 loginController.signIn(with: user) { (error) in
                     if let error = error {
                         // Maybe add an alert here
-                        print("Error occured during sin in: \(error)")
+                        print("Error occured during sign in: \(error)")
                     } else {
                         DispatchQueue.main.async {
                             self.dismiss(animated: true, completion: nil)
@@ -70,9 +79,14 @@ class LoginViewController: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             loginType = .signUp
             loginButton.setTitle("Sign Up", for: .normal)
+            password2TextField.isHidden = false
+            usernameTextField.isHidden = false
         } else {
             loginType = .signIn
             loginButton.setTitle("Sign In", for: .normal)
+            password2TextField.isHidden = true
+            usernameTextField.isHidden = true
+            
         }
     }
     

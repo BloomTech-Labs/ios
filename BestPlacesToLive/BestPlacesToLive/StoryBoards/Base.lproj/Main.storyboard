@@ -19,22 +19,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="SrB-xD-P3K">
-                                <rect key="frame" x="32" y="387" width="350" height="122"/>
+                                <rect key="frame" x="32" y="341" width="350" height="214"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-ew-uDy">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-ew-uDy">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lgx-c1-06H">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-Oo-BDW">
                                         <rect key="frame" x="0.0" y="46" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lgx-c1-06H">
+                                        <rect key="frame" x="0.0" y="92" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZiW-MH-GeD">
+                                        <rect key="frame" x="0.0" y="138" width="350" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ly8-vj-qjn">
-                                        <rect key="frame" x="0.0" y="92" width="350" height="30"/>
+                                        <rect key="frame" x="0.0" y="184" width="350" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="iHX-9L-htF" eventType="touchUpInside" id="Rf1-I7-F5h"/>
@@ -43,7 +55,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="J1C-ny-4E5">
-                                <rect key="frame" x="144.5" y="343" width="125" height="29"/>
+                                <rect key="frame" x="144.5" y="297" width="125" height="29"/>
                                 <segments>
                                     <segment title="Sign Up"/>
                                     <segment title="Sign In"/>
@@ -65,8 +77,10 @@
                         <viewLayoutGuide key="safeArea" id="81j-hT-5bj"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="wiB-Oo-BDW" id="jKn-gW-fXR"/>
                         <outlet property="loginButton" destination="ly8-vj-qjn" id="24d-xX-VJp"/>
                         <outlet property="loginTypeSegmentedControl" destination="J1C-ny-4E5" id="niw-V7-K1r"/>
+                        <outlet property="password2TextField" destination="ZiW-MH-GeD" id="5HC-zW-BeJ"/>
                         <outlet property="passwordTextField" destination="Lgx-c1-06H" id="Ay1-m9-vwb"/>
                         <outlet property="usernameTextField" destination="QgC-ew-uDy" id="JeV-8e-Ecc"/>
                     </connections>
