@@ -10,21 +10,24 @@ import Foundation
 
 class LoginController {
     
-    private let baseURL = URL(string: "https://demo0969329.mockable.io/")!
+    private let baseURL = URL(string: "http://stagingbe.letsmovehomie.com:3001/users/")!
     
     var bearer: Bearer?
+    
 
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
         
         var request = URLRequest(url: baseURL.appendingPathComponent("register"))
         request.httpMethod = "POST"
-//        request.setValue("text/html", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
+            print(String(data: jsonData, encoding: .utf8)!)
+            print(request)
         } catch {
             print("Error encoding user: \(error)")
             completion(error)
@@ -33,9 +36,11 @@ class LoginController {
         
         URLSession.shared.dataTask(with: request) { (_, response, error) in
             
+            
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
                 completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+               
                 return
             }
             
@@ -51,9 +56,9 @@ class LoginController {
     
     func signIn(with user: User, completion: @escaping (Error?) -> Void) {
         
-        var request = URLRequest(url: baseURL.appendingPathComponent("users/login"))
+        var request = URLRequest(url: baseURL.appendingPathComponent("login"))
         request.httpMethod = "POST"
-        //        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let jsonEncoder = JSONEncoder()
         
