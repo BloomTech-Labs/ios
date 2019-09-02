@@ -14,19 +14,42 @@ class HomeViewController: UIViewController {
     let transition = SlideInTransition()
     
     
+   
     @IBOutlet weak var cityCollectionView: UICollectionView!
+    @IBOutlet weak var incomeButton: UIButton!
+    @IBOutlet weak var weatherButton: UIButton!
+    @IBOutlet weak var schoolButton: UIButton!
+    @IBOutlet weak var crimeButton: UIButton!
+    var cities: [City] = []
     
     
-    @IBOutlet weak var categorieCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+   
         self.cityCollectionView.delegate = self
-        self.categorieCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
-        self.categorieCollectionView.dataSource = self
+        setupCategoryButtons()
+        
+        networkController.getTopCities { (city, error) in
+            if let error = error {
+                NSLog("Error fetching Top Cities: \(error)")
+                return
+            }
+            
+            if let city = city {
+                self.cities = city
+                print(self.cities)
+            }
+        }
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.cityCollectionView.reloadData()
     }
     
     @IBAction func menuButtonTapped(_ sender: Any) {
@@ -36,6 +59,25 @@ class HomeViewController: UIViewController {
         present(menuTableViewController, animated: true)
         
         
+    }
+    
+    private func setupCategoryButtons() {
+        incomeButton.setTitle("income", for: .normal)
+      //  incomeButton.setBackgroundImage(UIImage(named: "Income"), for: .normal)
+        incomeButton.layer.cornerRadius = 20.0
+        
+        
+        weatherButton.setTitle("weather", for: .normal)
+      //  weatherButton.setBackgroundImage(UIImage(named: "Weather"), for: .normal)
+        weatherButton.layer.cornerRadius = 20.0
+        
+        schoolButton.setTitle("School", for: .normal)
+    //    schoolButton.setBackgroundImage(UIImage(named: "School"), for: .normal)
+        schoolButton.layer.cornerRadius = 20.0
+        
+        crimeButton.setTitle("Crime", for: .normal)
+      //  crimeButton.setBackgroundImage(UIImage(named: "Crime"), for: .normal)
+        crimeButton.layer.cornerRadius = weatherButton.frame.width / 2
     }
     
     
@@ -58,57 +100,23 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == self.cityCollectionView {
-        return networkController.cities.count
-        } else {
-            return networkController.categories.count
-        }
+        return networkController.states.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath)
         
-        if collectionView == self.cityCollectionView {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError("City Collection Cell failed to return Data") }
-            
-            networkController.getTopCities { (error) in
-                if let error = error {
-                    NSLog("Error fetching top 10 Cities: \(error)")
-        
-                    let city = self.networkController.cities[indexPath.item]
-            
-            cell.nameLabel.text = city.name
-          //  cell.nameLabel.text = city.name
-            
-    
+        guard let cityCell = cell as? CityCollectionViewCell else { return cell }
+        let city = networkController.states[indexPath.row]
+  
+        cityCell.cityNameLabel.text = city.name
         
         
-        cell.city = city
-                }
-            }
         
-        return cell
-    } else {
-    
-            guard let categorieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCollectionViewCell else { fatalError("Category Collection Cell failed to return Data")}
-            
-            let category = networkController.categories[indexPath.item]
-          //  categorieCell.category = category
-            categorieCell.catoryNameLabel.text = category.category
-            categorieCell.catoryNameLabel.textColor = .white
-            categorieCell.alpha = 0.8
-           categorieCell.categoryImageView.image = category.image
-            
-            categorieCell.layer.cornerRadius = 20.0
-            
-            
-            
-            
-            
-            
-            return categorieCell
+        return cityCell
     }
-    
-   }
+        
+
     
 }
 
