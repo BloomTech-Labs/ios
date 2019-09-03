@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         self.cityCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
         setupCategoryButtons()
+        setUpButtons()
         
         networkController.getTopCities { (city, error) in
             if let error = error {
@@ -42,8 +43,30 @@ class HomeViewController: UIViewController {
                 print(self.cities)
             }
         }
+    }
+    
+    private func setUpButtons() {
+        incomeButton.layer.cornerRadius = 8
+        incomeButton.clipsToBounds = true
+        incomeButton.layer.borderColor = UIColor.black.cgColor
+        incomeButton.layer.borderWidth = 1.0
         
+        weatherButton.layer.cornerRadius = 8
+        weatherButton.clipsToBounds = true
+        weatherButton.layer.borderColor = UIColor.black.cgColor
+        weatherButton.layer.borderWidth = 1
+    
         
+        schoolButton.layer.cornerRadius = 8
+        schoolButton.clipsToBounds = true
+        schoolButton.layer.borderColor = UIColor.black.cgColor
+        schoolButton.layer.borderWidth = 1
+        
+        crimeButton.layer.cornerRadius = 8.0
+        crimeButton.clipsToBounds = true
+        
+        crimeButton.layer.borderColor = UIColor.black.cgColor
+        crimeButton.layer.borderWidth = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +133,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let city = networkController.states[indexPath.row]
   
         cityCell.cityNameLabel.text = city.name
+        cityCell.layer.borderColor = UIColor.black.cgColor
+        
+        cityCell.layer.borderWidth = 1
+        
+        cityCell.layer.cornerRadius = 20.0
+        
         
         
         
