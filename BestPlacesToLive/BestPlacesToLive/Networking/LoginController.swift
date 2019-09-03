@@ -10,10 +10,10 @@ import Foundation
 
 class LoginController {
     
-    private let baseURL = URL(string: "http://stagingbe.letsmovehomie.com:3001/users/")!
+    private let baseURL = URL(string: "http://162.243.168.251/users/")!
     
     var bearer: Bearer?
-    
+    var loggedInUser: LoggedInUser?
 
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
         
@@ -54,7 +54,7 @@ class LoginController {
         }.resume()
     }
     
-    func signIn(with user: User, completion: @escaping (Error?) -> Void) {
+    func signIn(with signInUser: SignInUser, completion: @escaping (Error?) -> Void) {
         
         var request = URLRequest(url: baseURL.appendingPathComponent("login"))
         request.httpMethod = "POST"
@@ -63,7 +63,7 @@ class LoginController {
         let jsonEncoder = JSONEncoder()
         
         do {
-            let jsonData = try jsonEncoder.encode(user)
+            let jsonData = try jsonEncoder.encode(signInUser)
             request.httpBody = jsonData
         } catch {
             print("Error encoding user: \(error)")
@@ -89,14 +89,14 @@ class LoginController {
                 completion(NSError())
                 return
             }
-            
-            let decoder = JSONDecoder()
-            do {
-               self.bearer = try decoder.decode(Bearer.self, from: data)
-            } catch {
-                completion(error)
-                return
-            }
+            print(String(decoding: data, as: UTF8.self))
+//            let decoder = JSONDecoder()
+//            do {
+//               self.loggedInUser = try decoder.decode(LoggedInUser.self, from: data)
+//            } catch {
+//                completion(error)
+//                return
+//            }
             
             completion(nil)
             }.resume()

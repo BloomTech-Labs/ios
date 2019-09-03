@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD09231EC582006B61E6 /* LoggedInUser.swift */; };
+		420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD0B231ECAEA006B61E6 /* SignInUser.swift */; };
 		4217D3A523158ED6002B601F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A423158ED6002B601F /* User.swift */; };
 		4217D3A723158F96002B601F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A623158F96002B601F /* LoginController.swift */; };
 		4217D3A92315947B002B601F /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A82315947B002B601F /* Bearer.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420EBD09231EC582006B61E6 /* LoggedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUser.swift; sourceTree = "<group>"; };
+		420EBD0B231ECAEA006B61E6 /* SignInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUser.swift; sourceTree = "<group>"; };
 		4217D3A423158ED6002B601F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4217D3A623158F96002B601F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4217D3A82315947B002B601F /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			children = (
 				ACA8093F230EFCDD00DC61EE /* City.swift */,
 				4217D3A423158ED6002B601F /* User.swift */,
+				420EBD0B231ECAEA006B61E6 /* SignInUser.swift */,
+				420EBD09231EC582006B61E6 /* LoggedInUser.swift */,
 				4217D3A82315947B002B601F /* Bearer.swift */,
 			);
 			path = Models;
@@ -226,10 +232,12 @@
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
+				420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */,
 				ACA80940230EFCDD00DC61EE /* City.swift in Sources */,
 				ACA80935230EF92F00DC61EE /* CategoryCollectionViewCell.swift in Sources */,
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
 				4217D3A92315947B002B601F /* Bearer.swift in Sources */,
+				420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */,
 				ACA80933230EF91900DC61EE /* CityCollectionViewCell.swift in Sources */,
 				4217D3A523158ED6002B601F /* User.swift in Sources */,
 				427B73F02306111D0070C334 /* AppDelegate.swift in Sources */,
