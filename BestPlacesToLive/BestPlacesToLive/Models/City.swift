@@ -12,6 +12,6 @@ import Foundation
 struct City: Codable, Equatable {
     
     var name: String
-    
+    var id: String
     
 }
