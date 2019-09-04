@@ -27,16 +27,17 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        if let name = usernameTextField.text,
-            !name.isEmpty,
-            let email = emailTextField.text,
-            !email.isEmpty,
-            let password = passwordTextField.text,
-            !password.isEmpty,
-            let password2 = password2TextField.text,
-            !password2.isEmpty {
-            let user = User(name: name, email: email, password: password, password2: password2)
             if loginType == .signUp {
+                if let name = usernameTextField.text,
+                    !name.isEmpty,
+                    let email = emailTextField.text,
+                    !email.isEmpty,
+                    let password = passwordTextField.text,
+                    !password.isEmpty,
+                    let password2 = password2TextField.text,
+                    !password2.isEmpty {
+                    let user = User(name: name, email: email, password: password, password2: password2)
+                
                 loginController.signUp(with: user) { (error) in
                     if let error = error {
                         // Maybe add an alert here
@@ -57,13 +58,22 @@ class LoginViewController: UIViewController {
                         }
                     }
                 }
+            }
+                
             } else {
-                loginController.signIn(with: user) { (error) in
+                    if let email = emailTextField.text,
+                        !email.isEmpty,
+                        let password = passwordTextField.text,
+                        !password.isEmpty {
+                        let signInUser = SignInUser(email: email, password: password)
+                        
+                loginController.signIn(with: signInUser) { (error) in
                     if let error = error {
                         // Maybe add an alert here
                         print("Error occured during sign in: \(error)")
                     } else {
                         DispatchQueue.main.async {
+                            print("Log In Success!")
                             self.dismiss(animated: true, completion: nil)
                         }
                     }
