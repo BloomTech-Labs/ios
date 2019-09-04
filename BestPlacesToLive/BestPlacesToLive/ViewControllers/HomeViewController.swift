@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         self.cityCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
         setupCategoryButtons()
-        setUpButtons()
+        customizeButtons()
         
         networkController.getTopCities { (city, error) in
             if let error = error {
@@ -45,24 +45,24 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func setUpButtons() {
-        incomeButton.layer.cornerRadius = 8
+    private func customizeButtons() {
+        incomeButton.layer.cornerRadius = 0.5 * incomeButton.bounds.size.width
         incomeButton.clipsToBounds = true
         incomeButton.layer.borderColor = UIColor.black.cgColor
         incomeButton.layer.borderWidth = 1.0
         
-        weatherButton.layer.cornerRadius = 8
+        weatherButton.layer.cornerRadius = 0.5 * weatherButton.bounds.size.width
         weatherButton.clipsToBounds = true
         weatherButton.layer.borderColor = UIColor.black.cgColor
         weatherButton.layer.borderWidth = 1
     
         
-        schoolButton.layer.cornerRadius = 8
+        schoolButton.layer.cornerRadius = 0.5 * schoolButton.bounds.size.width
         schoolButton.clipsToBounds = true
         schoolButton.layer.borderColor = UIColor.black.cgColor
         schoolButton.layer.borderWidth = 1
         
-        crimeButton.layer.cornerRadius = 8.0
+        crimeButton.layer.cornerRadius = 0.5 * crimeButton.bounds.size.width
         crimeButton.clipsToBounds = true
         
         crimeButton.layer.borderColor = UIColor.black.cgColor
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController {
         
         crimeButton.setTitle("Crime", for: .normal)
       //  crimeButton.setBackgroundImage(UIImage(named: "Crime"), for: .normal)
-        crimeButton.layer.cornerRadius = weatherButton.frame.width / 2
+        //crimeButton.layer.cornerRadius = weatherButton.frame.width / 2
     }
     
     
