@@ -15,13 +15,46 @@ class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var cityCollectionView: UICollectionView!
+    @IBOutlet weak var incomeButton: UIButton!
+    @IBOutlet weak var weatherButton: UIButton!
+    @IBOutlet weak var schoolButton: UIButton!
+    @IBOutlet weak var crimeButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.cityCollectionView.delegate = self
+        self.cityCollectionView.dataSource = self
         
+        setupCategoryButtons()
+      
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.cityCollectionView.reloadData()
+    }
+    
+    private func setupCategoryButtons() {
+        incomeButton.setTitle("income", for: .normal)
+        //  incomeButton.setBackgroundImage(UIImage(named: "Income"), for: .normal)
+        incomeButton.layer.cornerRadius = 20.0
+        
+        
+        weatherButton.setTitle("weather", for: .normal)
+        //  weatherButton.setBackgroundImage(UIImage(named: "Weather"), for: .normal)
+        weatherButton.layer.cornerRadius = 20.0
+        
+        schoolButton.setTitle("School", for: .normal)
+        //    schoolButton.setBackgroundImage(UIImage(named: "School"), for: .normal)
+        schoolButton.layer.cornerRadius = 20.0
+        
+        crimeButton.setTitle("Crime", for: .normal)
+        //  crimeButton.setBackgroundImage(UIImage(named: "Crime"), for: .normal)
+        crimeButton.layer.cornerRadius = weatherButton.frame.width / 2
     }
     
     @IBAction func menuButtonTapped(_ sender: Any) {
@@ -32,6 +65,7 @@ class HomeViewController: UIViewController {
         
         
     }
+    
     
     
     
@@ -52,26 +86,25 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return networkController.cities.count
+        return networkController.states.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError("City Collection Cell failed to return Data") }
-        
-        let city = networkController.cities[indexPath.row]
-    
-        
-        
-        cell.city = city
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath)
+        guard let cityCell = cell as? CityCollectionViewCell else { return cell }
+        let city = networkController.states[indexPath.row]
         
         
-       
-        
-        
-        
-        return cell
+        cityCell.nameLabel.text = city.name
+        cityCell.layer.cornerRadius = 20.0
+        cityCell.layer.borderWidth = 1
+        return cityCell
     }
 }
+
+
+
+
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
