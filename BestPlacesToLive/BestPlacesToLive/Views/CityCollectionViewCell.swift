@@ -23,9 +23,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     
     private func updateViews() {
     
-        guard let cityName = nameLabel.text else { return }
-        city?.name = cityName
-        
+        nameLabel.text = city?.name
         
     }
 }

@@ -11,7 +11,13 @@ import Foundation
 
 struct City: Codable, Equatable {
     
-    var name: String
-    var id: String
+    let _id: String
+    let name: String
+    let cost_of_living: String
+    let avg_commute_time: Float
     
+}
+
+struct TopCities: Codable {
+    var cities: [City]
 }
