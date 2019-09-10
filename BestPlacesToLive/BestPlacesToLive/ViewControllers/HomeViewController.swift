@@ -32,17 +32,6 @@ class HomeViewController: UIViewController {
         setupCategoryButtons()
         customizeButtons()
         
-        networkController.getTopCities { (city, error) in
-            if let error = error {
-                NSLog("Error fetching Top Cities: \(error)")
-                return
-            }
-            
-            if let city = city {
-                self.cities = city
-                print(self.cities)
-            }
-        }
     }
     
     private func customizeButtons() {

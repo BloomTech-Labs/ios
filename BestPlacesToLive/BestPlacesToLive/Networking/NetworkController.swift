@@ -12,20 +12,15 @@ class NetworkingController {
     
   
     
-    private let baseURL = URL(string: "https://demo0969329.mockable.io/topten")!
+    private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/city")!
     
-    var categories = [CityCategory(category: "Income", imageName: "Income"),
-                       CityCategory(category: "Crime", imageName: "Crime"),
-                       CityCategory(category: "Weather", imageName: "Weather"),
-                        CityCategory(category: "School", imageName: "School")]
+ 
+    var topCities: [City] = []
+    var allCities: [City]
+    = []
     
-    // mock states:
-/*    [BestPlacesToLive.City(id: "1", name: "Florida"), BestPlacesToLive.City(id: "2", name: "California"), BestPlacesToLive.City(id: "3", name: "Alabama"), BestPlacesToLive.City(id: "4", name: "Georgia"), BestPlacesToLive.City(id: "5", name: "Ohio"), BestPlacesToLive.City(id: "6", name: "Michigan"), BestPlacesToLive.City(id: "7", name: "Montana"), BestPlacesToLive.City(id: "8", name: "Utah"), BestPlacesToLive.City(id: "9", name: "Luda luda"), BestPlacesToLive.City(id: "10", name: "Indiana")]
-    */
-    var states = [City(name:"Florida" , id: "1"), City(name: "California", id: "2"), City(name: "Alabama", id: "3"), City(name: "Georgia", id: "4"), City(name: "Ohio", id: "5"), City(name: "Michigan", id: "6"), City(name: "Montana", id: "7"), City(name: "Utah", id: "8"),
-    City(name: "Luda luda", id: "9"), City(name: "Indiana", id: "10")]
     
-    func getTopCities(completion: @escaping ([City]?, Error?) -> Void) {
+    func getAllCities(completion:@escaping ([City]?, Error?) -> Void) {
         
         var request = URLRequest(url: baseURL)
         request.httpMethod = "GET"
@@ -34,21 +29,55 @@ class NetworkingController {
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                NSLog("Error fetching cities from Task: \(error)")
+                NSLog("Error fetching top 10 cities from Task: \(error)")
                 completion(nil, error)
                 return
             }
             
             guard let data = data else {
-                NSLog("Bad data from Datatask")
+            NSLog("Bad data from baseurl task")
+            completion(nil, NSError())
+            return
+        }
+        
+        do {
+            let decodedCities = try decoder.decode([City].self, from: data)
+          print(self.allCities = decodedCities)
+            completion(decodedCities, nil)
+            
+        } catch {
+            NSLog("Error fetching all cities: \(error)")
+            completion(nil, error)
+            return
+        }
+}
+    
+    func getTopCities(completion: @escaping ([City]?, Error?) -> Void) {
+        
+        let url = baseURL.appendingPathComponent("topten-cost-of-living")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let decoder = JSONDecoder()
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching top 10 cities from Task: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Bad data from top 10 Datatask")
                 completion(nil, NSError())
                 return
             }
             
             do {
                 let decodedCities = try decoder.decode([City].self, from: data)
+                self.topCities = decodedCities
                 completion(decodedCities, nil)
-                return
+                
                 
             } catch {
                 NSLog("Error decoding Cities: \(error)")
@@ -60,4 +89,5 @@ class NetworkingController {
         
         
     }
+}
 }
