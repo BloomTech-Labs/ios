@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     let networkController = NetworkingController()
     let transition = SlideInTransition()
+    var cities: [City]?
     
     
     @IBOutlet weak var cityCollectionView: UICollectionView!
@@ -29,6 +30,18 @@ class HomeViewController: UIViewController {
         
         setupCategoryButtons()
       
+        networkController.getTopCities { (cities, error) in
+            if let error = error {
+                NSLog("Error getting cities: \(error)")
+            }
+            
+            if let cities = cities {
+                DispatchQueue.main.async {
+                    self.cities = cities
+                    self.cityCollectionView.reloadData()
+                }
+            }
+        }
         
     }
     
@@ -86,19 +99,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return networkController.states.count
+        return cities?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath)
-        guard let cityCell = cell as? CityCollectionViewCell else { return cell }
-        let city = networkController.states[indexPath.row]
-        
-        
-        cityCell.nameLabel.text = city.name
-        cityCell.layer.cornerRadius = 20.0
-        cityCell.layer.borderWidth = 1
-        return cityCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError() }
+       let city = cities?[indexPath.row]
+        cell.city = city
+        cell.layer.cornerRadius = 20.0
+        cell.layer.borderWidth = 1
+        return cell
     }
 }
 

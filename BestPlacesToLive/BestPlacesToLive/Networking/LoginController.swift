@@ -10,7 +10,7 @@ import Foundation
 
 class LoginController {
     
-    private let baseURL = URL(string: "http://162.243.168.251/users/")!
+    private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/users/")!
     
     var bearer: Bearer?
     var loggedInUser: LoggedInUser?
@@ -20,6 +20,7 @@ class LoginController {
         var request = URLRequest(url: baseURL.appendingPathComponent("register"))
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("ios", forHTTPHeaderField: "User-Type")
         
         let jsonEncoder = JSONEncoder()
         
@@ -59,6 +60,7 @@ class LoginController {
         var request = URLRequest(url: baseURL.appendingPathComponent("login"))
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("ios", forHTTPHeaderField: "User-Type")
         
         let jsonEncoder = JSONEncoder()
         
@@ -90,13 +92,13 @@ class LoginController {
                 return
             }
             print(String(decoding: data, as: UTF8.self))
-//            let decoder = JSONDecoder()
-//            do {
-//               self.loggedInUser = try decoder.decode(LoggedInUser.self, from: data)
-//            } catch {
-//                completion(error)
-//                return
-//            }
+            let decoder = JSONDecoder()
+            do {
+               self.bearer = try decoder.decode(Bearer.self, from: data)
+            } catch {
+                completion(error)
+                return
+            }
             
             completion(nil)
             }.resume()
