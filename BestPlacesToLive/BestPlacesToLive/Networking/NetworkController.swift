@@ -44,7 +44,5 @@ class NetworkingController {
                 
             }
             }.resume()
-        
-        
-    }
+        }
 }

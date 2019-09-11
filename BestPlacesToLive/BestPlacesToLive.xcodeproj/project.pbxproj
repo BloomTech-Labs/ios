@@ -23,6 +23,7 @@
 		ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80937230EF97700DC61EE /* HomeViewController.swift */; };
 		ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8093C230EFA2400DC61EE /* NetworkController.swift */; };
 		ACA80940230EFCDD00DC61EE /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8093F230EFCDD00DC61EE /* City.swift */; };
+		ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		ACA80937230EF97700DC61EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ACA8093C230EFA2400DC61EE /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		ACA8093F230EFCDD00DC61EE /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				ACA80937230EF97700DC61EE /* HomeViewController.swift */,
 				424FE85623148D4600088332 /* LoginViewController.swift */,
 				42F8B7B123104D6A00EB999D /* MenuTableViewController.swift */,
+				ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
 				4217D3A92315947B002B601F /* Bearer.swift in Sources */,
 				420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */,
+				ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */,
 				ACA80933230EF91900DC61EE /* CityCollectionViewCell.swift in Sources */,
 				4217D3A523158ED6002B601F /* User.swift in Sources */,
 				427B73F02306111D0070C334 /* AppDelegate.swift in Sources */,
