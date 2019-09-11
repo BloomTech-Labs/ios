@@ -19,11 +19,26 @@ class CityCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var cityImageView: UIView!
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     private func updateViews() {
     
         nameLabel.text = city?.name
+        nameLabel.textColor = .white
+        nameLabel.alpha = 0.8
+        
+        
+        do {
+            let cityUrl = URL(string: city!.photo)
+            let data = try Data(contentsOf: cityUrl!)
+            imageView.image = UIImage(data: data)
+
+            
+        } catch {
+            NSLog("Error grabbing converting imageURL to Data")
+            return
+        }
         
     }
 }

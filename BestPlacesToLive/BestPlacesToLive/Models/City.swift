@@ -15,7 +15,7 @@ struct City: Codable, Equatable {
     let name: String
     let cost_of_living: String
     let avg_commute_time: Float
-    
+    let photo: String
 }
 
 struct TopCities: Codable {
