@@ -51,6 +51,15 @@ class HomeViewController: UIViewController {
         self.cityCollectionView.reloadData()
     }
     
+    
+    
+    
+    @IBAction func swipeGesterUsed(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "SwipeSegue", sender: self)
+        print("Swipe Gesture Hit!!")
+    }
+    
     private func setupCategoryButtons() {
         incomeButton.setTitle("income", for: .normal)
         //  incomeButton.setBackgroundImage(UIImage(named: "Income"), for: .normal)
