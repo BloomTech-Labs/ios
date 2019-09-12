@@ -8,13 +8,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchBarDelegate {
     
     let networkController = NetworkingController()
     let transition = SlideInTransition()
     var cities: [City]?
     
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cityCollectionView: UICollectionView!
     @IBOutlet weak var incomeButton: UIButton!
     @IBOutlet weak var weatherButton: UIButton!
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
         self.cityCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
         
@@ -51,7 +53,21 @@ class HomeViewController: UIViewController {
         self.cityCollectionView.reloadData()
     }
     
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchWord = searchBar.text, !searchWord.isEmpty else { return }
+        networkController.searchCities(searchTerm: searchWord) { (cities, error) in
+            if let error = error {
+                NSLog("Error searching cities: \(error)")
+            }
+            if let cities = cities {
+                DispatchQueue.main.async {
+                    self.cities = cities
+                    self.cityCollectionView.reloadData()
+                }
+            }
+        }
+        
+    }
     
     
     @IBAction func swipeGesterUsed(_ sender: Any) {

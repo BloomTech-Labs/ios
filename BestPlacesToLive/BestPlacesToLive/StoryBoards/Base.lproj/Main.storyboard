@@ -290,6 +290,7 @@
                         <outlet property="crimeButton" destination="JeL-ge-kDM" id="RaC-e4-MeV"/>
                         <outlet property="incomeButton" destination="Vj0-e2-SA9" id="CAJ-MP-ATk"/>
                         <outlet property="schoolButton" destination="AyP-Dq-vAD" id="Eip-or-LOC"/>
+                        <outlet property="searchBar" destination="c4W-iY-xbT" id="MVs-sy-9k4"/>
                         <outlet property="weatherButton" destination="4RC-hl-nl1" id="0wW-MW-58Q"/>
                     </connections>
                 </viewController>
