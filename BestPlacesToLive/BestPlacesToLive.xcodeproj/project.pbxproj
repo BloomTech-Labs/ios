@@ -12,6 +12,7 @@
 		4217D3A523158ED6002B601F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A423158ED6002B601F /* User.swift */; };
 		4217D3A723158F96002B601F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A623158F96002B601F /* LoginController.swift */; };
 		4217D3A92315947B002B601F /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A82315947B002B601F /* Bearer.swift */; };
+		42370421232AE8B100A7D8F5 /* SearchTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42370420232AE8B100A7D8F5 /* SearchTerm.swift */; };
 		424FE85723148D4600088332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424FE85623148D4600088332 /* LoginViewController.swift */; };
 		427B73F02306111D0070C334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B73EF2306111D0070C334 /* AppDelegate.swift */; };
 		427B73F52306111D0070C334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F32306111D0070C334 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		4217D3A423158ED6002B601F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4217D3A623158F96002B601F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4217D3A82315947B002B601F /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
+		42370420232AE8B100A7D8F5 /* SearchTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTerm.swift; sourceTree = "<group>"; };
 		424FE85623148D4600088332 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		427B73EC2306111D0070C334 /* BestPlacesToLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestPlacesToLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427B73EF2306111D0070C334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				420EBD0B231ECAEA006B61E6 /* SignInUser.swift */,
 				420EBD09231EC582006B61E6 /* LoggedInUser.swift */,
 				4217D3A82315947B002B601F /* Bearer.swift */,
+				42370420232AE8B100A7D8F5 /* SearchTerm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				ACA80940230EFCDD00DC61EE /* City.swift in Sources */,
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
 				4217D3A92315947B002B601F /* Bearer.swift in Sources */,
+				42370421232AE8B100A7D8F5 /* SearchTerm.swift in Sources */,
 				420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */,
 				ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */,
 				ACA80933230EF91900DC61EE /* CityCollectionViewCell.swift in Sources */,

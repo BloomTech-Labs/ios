@@ -21,3 +21,7 @@ struct City: Codable, Equatable {
 struct TopCities: Codable {
     var cities: [City]
 }
+
+struct SearchedCities: Codable {
+    var cities: [City]
+}
