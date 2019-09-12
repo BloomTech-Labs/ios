@@ -54,9 +54,9 @@
                         <viewLayoutGuide key="safeArea" id="r2w-JV-GbI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="0Sw-cb-EdO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="X1z-84-Q3X">
+                        <barButtonItem key="rightBarButtonItem" title="Map View" id="Kpr-VH-1P4">
                             <connections>
-                                <action selector="addCityButtonTapped:" destination="Q35-VT-76u" id="yJL-V6-fjv"/>
+                                <segue destination="sOb-rR-bIm" kind="show" identifier="MapSegue" id="J1n-br-iJ1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -152,7 +152,6 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="BestPlacesToLive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -175,32 +174,32 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZX7-31-R3U">
-                                <rect key="frame" x="0.0" y="287" width="414" height="609"/>
+                                <rect key="frame" x="0.0" y="278" width="414" height="618"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="GvS-YS-SHC">
-                                    <size key="itemSize" width="184" height="155"/>
+                                    <size key="itemSize" width="180" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CityCell" id="eTT-fX-k1Y" customClass="CityCollectionViewCell" customModule="BestPlacesToLive" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="16" width="184" height="155"/>
+                                        <rect key="frame" x="16" y="16" width="180" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="184" height="155"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIz-kp-bbC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="155"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-cp-JCv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="155"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="160"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oke-rZ-WvF">
-                                                            <rect key="frame" x="71" y="67" width="42" height="21"/>
+                                                            <rect key="frame" x="69" y="69.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -285,13 +284,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AVW-w9-FpO">
-                        <barButtonItem key="rightBarButtonItem" title="Map" image="globe_earth" id="Sfg-hQ-z04">
-                            <connections>
-                                <segue destination="sOb-rR-bIm" kind="show" identifier="MapSegue" id="KQO-IF-HLD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="AVW-w9-FpO"/>
                     <connections>
                         <outlet property="cityCollectionView" destination="ZX7-31-R3U" id="f0o-xs-bot"/>
                         <outlet property="crimeButton" destination="JeL-ge-kDM" id="RaC-e4-MeV"/>
@@ -300,6 +293,7 @@
                         <outlet property="weatherButton" destination="4RC-hl-nl1" id="0wW-MW-58Q"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="99.776785714285708"/>
         </scene>
@@ -311,26 +305,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3mR-u2-odt">
-                                <rect key="frame" x="0.0" y="241" width="414" height="655"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3mR-u2-odt">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sOb-rR-bIm" id="Q2l-gJ-5zr"/>
+                                </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXb-gS-OT8">
-                                <rect key="frame" x="0.0" y="170" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="trailing" secondItem="XEB-Qe-T7R" secondAttribute="trailing" id="0Jg-E7-tud"/>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="leading" secondItem="XEB-Qe-T7R" secondAttribute="leading" id="aOL-Kv-R99"/>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="top" secondItem="XEB-Qe-T7R" secondAttribute="top" id="k3n-5U-CwW"/>
+                            <constraint firstAttribute="bottom" secondItem="3mR-u2-odt" secondAttribute="bottom" id="m3p-Qr-7XF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XEB-Qe-T7R"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mWZ-NG-ecz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="aFj-Wy-7iL">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="sOb-rR-bIm" id="gkO-5b-gtW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="3mR-u2-odt" id="Dac-mE-RHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbz-VH-R6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669.5652173913045" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1655" y="796"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="mmA-Ho-k2K">
@@ -497,7 +501,6 @@
     </scenes>
     <resources>
         <image name="camera" width="48" height="48"/>
-        <image name="globe_earth" width="30" height="30"/>
         <image name="home" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
     </resources>

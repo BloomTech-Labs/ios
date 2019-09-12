@@ -11,24 +11,41 @@ import UIKit
 class MapViewController: UIViewController {
     
     
-    
+    var cityName: String?
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Create the search request
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = cityName
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        activeSearch.start { (response, error) in
+            
+            if response == nil {
+                NSLog("Error with search")
+            } else {
+                //Remove Annotations
+                let annotations = self.mapView.annotations
+                self.mapView.removeAnnotations(annotations)
+                
+                //Getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                
+                //Create annotation
+                let annotation = MKPointAnnotation()
+                annotation.title = self.cityName
+                annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                self.mapView.addAnnotation(annotation)
+                
+                //Zooming in on annotation
+                let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+                let region = MKCoordinateRegion(center: coordinate, span: span)
+                self.mapView.setRegion(region, animated: true)
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

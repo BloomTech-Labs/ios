@@ -26,7 +26,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     
         nameLabel.text = city?.name
         nameLabel.textColor = .white
-        nameLabel.alpha = 0.8
+        nameLabel.alpha = 1.0
         
         
         do {
