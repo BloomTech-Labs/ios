@@ -64,7 +64,7 @@ class MapViewController: UIViewController, UISearchBarDelegate {
                 
                 //Create annotation
                 let annotation = MKPointAnnotation()
-                annotation.title = searchBar.text
+                annotation.title = response?.mapItems.first?.name
                 annotation.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 self.mapView.addAnnotation(annotation)
                 
