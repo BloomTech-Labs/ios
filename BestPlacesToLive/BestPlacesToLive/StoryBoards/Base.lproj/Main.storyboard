@@ -152,7 +152,6 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="BestPlacesToLive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -300,6 +299,7 @@
                         <outlet property="weatherButton" destination="4RC-hl-nl1" id="0wW-MW-58Q"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="99.776785714285708"/>
         </scene>
@@ -311,19 +311,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3mR-u2-odt">
-                                <rect key="frame" x="0.0" y="241" width="414" height="655"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3mR-u2-odt">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sOb-rR-bIm" id="Q2l-gJ-5zr"/>
+                                </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXb-gS-OT8">
-                                <rect key="frame" x="0.0" y="170" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="trailing" secondItem="XEB-Qe-T7R" secondAttribute="trailing" id="0Jg-E7-tud"/>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="leading" secondItem="XEB-Qe-T7R" secondAttribute="leading" id="aOL-Kv-R99"/>
+                            <constraint firstItem="3mR-u2-odt" firstAttribute="top" secondItem="XEB-Qe-T7R" secondAttribute="top" id="k3n-5U-CwW"/>
+                            <constraint firstAttribute="bottom" secondItem="3mR-u2-odt" secondAttribute="bottom" id="m3p-Qr-7XF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XEB-Qe-T7R"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mWZ-NG-ecz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="aFj-Wy-7iL">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="sOb-rR-bIm" id="gkO-5b-gtW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="3mR-u2-odt" id="Dac-mE-RHT"/>
                     </connections>
