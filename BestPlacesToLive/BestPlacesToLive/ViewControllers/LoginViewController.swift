@@ -72,6 +72,11 @@ class LoginViewController: UIViewController {
                         // Maybe add an alert here
                         print("Error occured during sign in: \(error)")
                     } else {
+                        UserDefaults.standard.set(self.loginController.bearer?.token, forKey: "token")
+                        //Checking if token was saved to UserDefaults
+                        let str = UserDefaults.standard.object(forKey: "token") as! String
+                        print(str)
+                        //end
                         DispatchQueue.main.async {
                             print("Log In Success!")
                             self.dismiss(animated: true, completion: nil)

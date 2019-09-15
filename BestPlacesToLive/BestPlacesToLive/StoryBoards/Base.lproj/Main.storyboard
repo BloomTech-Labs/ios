@@ -41,14 +41,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRd-iJ-HuY">
+                                <rect key="frame" x="8" y="824" width="398" height="30"/>
+                                <state key="normal" title="Save City"/>
+                                <connections>
+                                    <action selector="saveCityButtonTapped:" destination="Q35-VT-76u" eventType="touchUpInside" id="jj1-kF-x4d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2Q6-lq-zRa" firstAttribute="leading" secondItem="r2w-JV-GbI" secondAttribute="leading" id="8U9-aC-4VH"/>
+                            <constraint firstItem="wRd-iJ-HuY" firstAttribute="leading" secondItem="r2w-JV-GbI" secondAttribute="leading" constant="8" id="Buc-Hn-eye"/>
                             <constraint firstItem="2Q6-lq-zRa" firstAttribute="trailing" secondItem="r2w-JV-GbI" secondAttribute="trailing" id="D3z-rQ-wt5"/>
                             <constraint firstItem="2Q6-lq-zRa" firstAttribute="top" secondItem="r2w-JV-GbI" secondAttribute="top" id="OsL-x9-gPI"/>
                             <constraint firstItem="sqw-Rq-raN" firstAttribute="leading" secondItem="r2w-JV-GbI" secondAttribute="leading" constant="8" id="Qgc-Cu-Ygh"/>
+                            <constraint firstItem="r2w-JV-GbI" firstAttribute="bottom" secondItem="wRd-iJ-HuY" secondAttribute="bottom" constant="8" id="Ry8-Bl-frQ"/>
                             <constraint firstItem="sqw-Rq-raN" firstAttribute="top" secondItem="2Q6-lq-zRa" secondAttribute="bottom" constant="16" id="S6e-QA-dhD"/>
+                            <constraint firstItem="r2w-JV-GbI" firstAttribute="bottom" secondItem="wRd-iJ-HuY" secondAttribute="bottom" constant="8" id="UPq-0M-LS8"/>
+                            <constraint firstItem="r2w-JV-GbI" firstAttribute="trailing" secondItem="wRd-iJ-HuY" secondAttribute="trailing" constant="8" id="UTV-JE-cgD"/>
                             <constraint firstItem="r2w-JV-GbI" firstAttribute="bottom" secondItem="sqw-Rq-raN" secondAttribute="bottom" constant="398" id="bLA-QY-Rv8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r2w-JV-GbI"/>
@@ -322,13 +333,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XEB-Qe-T7R"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mWZ-NG-ecz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="aFj-Wy-7iL">
-                            <connections>
-                                <action selector="searchButtonTapped:" destination="sOb-rR-bIm" id="gkO-5b-gtW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="mWZ-NG-ecz"/>
                     <connections>
                         <outlet property="mapView" destination="3mR-u2-odt" id="Dac-mE-RHT"/>
                     </connections>

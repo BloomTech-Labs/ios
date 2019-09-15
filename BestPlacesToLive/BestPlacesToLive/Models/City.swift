@@ -25,3 +25,15 @@ struct TopCities: Codable {
 struct SearchedCities: Codable {
     var cities: [City]
 }
+
+struct SavedCity: Codable {
+    let city_id: String
+    let city_name: String
+    let city_photo: String
+}
+
+struct ReturnedSavedCity: Codable {
+    let _id: String
+    let name: String
+    let photo: String
+}
