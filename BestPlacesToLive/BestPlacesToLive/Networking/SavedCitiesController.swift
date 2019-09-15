@@ -117,6 +117,48 @@ class SavedCitiesController {
             }
             }.resume()
     }
+    
+    func getAllSavedCity(completion: @escaping (LoggedInUser?, Error?) -> Void) {
+        
+        var request = URLRequest(url: baseURL)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let token = UserDefaults.standard.object(forKey: "token")
+        request.addValue(token as! String, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                
+                return
+            }
+            
+            if let error = error {
+                NSLog("Error getting saved cities: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned")
+                completion(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            
+            do {
+                let loggedInUser = try decoder.decode(LoggedInUser.self, from: data)
+                completion(loggedInUser, nil)
+            } catch {
+                NSLog("Error decoding loggedInUser: \(error)")
+                completion(nil, error)
+                return
+            }
+            }.resume()
+    }
+
 
 
 }
