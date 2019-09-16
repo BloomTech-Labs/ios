@@ -10,7 +10,7 @@ import UIKit
 
 class SavedCityCollectionViewCell: UICollectionViewCell {
     
-    var savedCity: City? {
+    var savedCity: ReturnedSavedCity? {
         didSet {
             updateViews()
         }

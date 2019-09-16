@@ -14,6 +14,7 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var cityImageView: UIImageView!
     @IBOutlet weak var commuteTimeLabel: UILabel!
     @IBOutlet weak var costOfLivingLabel: UILabel!
+    var savedCitiesController = SavedCitiesController()
     
     var city: City? {
         didSet {
@@ -41,8 +42,8 @@ class CityDetailViewController: UIViewController {
         
         navigationItem.title = city.name
         
-        costOfLivingLabel.text = String("Cost of Living: \(city.cost_of_living)")
-        commuteTimeLabel.text = "Average Commute Time: \(city.avg_commute_time)"
+        costOfLivingLabel.text = String("Cost of Living: \(city.costOfLiving)")
+        commuteTimeLabel.text = "Average Commute Time: \(city.avgCommuteTime)"
         let cityUrl = URL(string: city.photo)
         do {
             let data = try Data(contentsOf: cityUrl!)
@@ -52,9 +53,22 @@ class CityDetailViewController: UIViewController {
             return
                 
         }
-        
-        
     }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let city = city else { return }
+        let savedCity = SavedCity(cityID: city.id, cityName: city.name, cityPhoto: city.photo)
+        savedCitiesController.addSavedCity(savedCity: savedCity) { (loggedInUser, error) in
+            if let error = error {
+                //Present Alert: Could not save city to favorites
+                NSLog("Error saving city: \(error)")
+            } else {
+                //Present Alert. "City Saved to favorites"
+                print("Saved Cities: \(loggedInUser?.cities as Any)")
+            }
+        }
+    }
+    
     
     // MARK: - Navigation
 

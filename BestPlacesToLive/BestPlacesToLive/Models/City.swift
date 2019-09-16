@@ -11,11 +11,19 @@ import Foundation
 
 struct City: Codable, Equatable {
     
-    let _id: String
+    let id: String
     let name: String
-    let cost_of_living: String
-    let avg_commute_time: Float
+    let costOfLiving: String
+    let avgCommuteTime: Float
     let photo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case costOfLiving = "cost_of_living"
+        case avgCommuteTime = "avg_commute_time"
+        case name
+        case photo
+    }
 }
 
 struct TopCities: Codable {
@@ -24,4 +32,36 @@ struct TopCities: Codable {
 
 struct SearchedCities: Codable {
     var cities: [City]
+}
+
+struct CityIDs: Codable {
+    var ids: [String]
+}
+
+struct SavedCity: Codable {
+    let cityID: String
+    let cityName: String
+    let cityPhoto: String
+    
+    enum CodingKeys: String, CodingKey {
+        case cityID = "city_id"
+        case cityName = "city_name"
+        case cityPhoto = "city_photo"
+    }
+}
+
+struct ReturnedSavedCity: Codable {
+    let id: String
+    let name: String
+    let photo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case photo
+    }
+}
+
+struct CityData: Codable {
+    let data: [City]
 }
