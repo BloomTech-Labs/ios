@@ -12,6 +12,7 @@ class NetworkingController {
     
     private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/city/")!
     
+    
     func getTopCities(completion: @escaping ([City]?, Error?) -> Void) {
         
         let topCitiesURL = baseURL.appendingPathComponent("topten-cost-of-living/")
@@ -102,4 +103,19 @@ class NetworkingController {
             }
         }.resume()
     }
+    
+    
+    func getSavedCities(completion: @escaping (Error?) -> Void) {
+        
+        // NEED Saved Cities URL
+        let savedCitiesURL = baseURL
+        
+        var request = URLRequest(url: savedCitiesURL)
+        request.httpMethod = "GET"
+        
+        
+        
+    }
+    
+    
 }

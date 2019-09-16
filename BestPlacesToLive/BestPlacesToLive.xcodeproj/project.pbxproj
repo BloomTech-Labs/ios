@@ -26,6 +26,10 @@
 		ACA80940230EFCDD00DC61EE /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8093F230EFCDD00DC61EE /* City.swift */; };
 		ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */; };
 		ACF3C77B2329981B00AF15B9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77A2329981A00AF15B9 /* MapViewController.swift */; };
+		ACF3C77D232BFB2000AF15B9 /* SavedCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77C232BFB2000AF15B9 /* SavedCitiesViewController.swift */; };
+		ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */; };
+		ACF3C781232C0E5D00AF15B9 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */; };
+		ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		ACA8093F230EFCDD00DC61EE /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		ACF3C77A2329981A00AF15B9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		ACF3C77C232BFB2000AF15B9 /* SavedCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCitiesViewController.swift; sourceTree = "<group>"; };
+		ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCityCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				42F8B7B323104E8300EB999D /* SlideInTransition.swift */,
+				ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -105,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA80932230EF91900DC61EE /* CityCollectionViewCell.swift */,
+				ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +127,8 @@
 				42F8B7B123104D6A00EB999D /* MenuTableViewController.swift */,
 				ACF3C77823295B3800AF15B9 /* CityDetailViewController.swift */,
 				ACF3C77A2329981A00AF15B9 /* MapViewController.swift */,
+				ACF3C77C232BFB2000AF15B9 /* SavedCitiesViewController.swift */,
+				ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,14 +246,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4217D3A723158F96002B601F /* LoginController.swift in Sources */,
+				ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */,
 				424FE85723148D4600088332 /* LoginViewController.swift in Sources */,
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
+				ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */,
 				420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */,
 				ACA80940230EFCDD00DC61EE /* City.swift in Sources */,
+				ACF3C77D232BFB2000AF15B9 /* SavedCitiesViewController.swift in Sources */,
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
 				4217D3A92315947B002B601F /* Bearer.swift in Sources */,
+				ACF3C781232C0E5D00AF15B9 /* ViewController+Extension.swift in Sources */,
 				42370421232AE8B100A7D8F5 /* SearchTerm.swift in Sources */,
 				420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */,
 				ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */,
@@ -395,7 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = TP75B2J23B;
 				INFOPLIST_FILE = "$(SRCROOT)/BestPlacesToLive/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = TP75B2J23B;
 				INFOPLIST_FILE = "$(SRCROOT)/BestPlacesToLive/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
