@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     let networkController = NetworkingController()
     let transition = SlideInTransition()
     var cities: [City]?
+    var topView: UIView?
     
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -104,6 +105,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
+    func switchToNew(_ menuType: MenuType) {
+        
+    }
+    
     
     
     
@@ -146,6 +151,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.layer.borderWidth = 1
         return cell
     }
+    
+    
+    
+    
 }
 
 

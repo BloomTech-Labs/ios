@@ -9,11 +9,46 @@
 import UIKit
 
 class SavedCitiesViewController: UIViewController {
-
+    
+    
+    var savedCities: [City]? = []
+    let networkController = NetworkingController()
+    
+    @IBOutlet weak var savedCityCollectionView: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        savedCityCollectionView.delegate = self
+        savedCityCollectionView.dataSource = self
+        
+        networkController.getTopCities { (cities, error) in
+            if let error = error {
+                NSLog("Error fetching saved Cities in SavedCitiesViewController: \(error)")
+                return
+            }
+            
+            if let cities = cities {
+                DispatchQueue.main.async {
+                    self.savedCities = cities
+                    self.savedCityCollectionView.reloadData()
+                }
+            }
+        }
+        
+        
+    }
+    
+    
+    @IBAction func homebuttonTapped(_ sender: Any) {
+        
+       
+        self.dismiss(animated: true, completion: nil)
+
+        
+        
     }
     
 
@@ -27,4 +62,27 @@ class SavedCitiesViewController: UIViewController {
     }
     */
 
+}
+
+extension SavedCitiesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return savedCities?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = savedCityCollectionView.dequeueReusableCell(withReuseIdentifier: "SavedCityCell", for: indexPath) as? SavedCityCollectionViewCell else { fatalError() }
+        
+        let savedCity = savedCities?[indexPath.item]
+        
+        cell.savedCity = savedCity
+        cell.layer.cornerRadius = 20.0
+        
+        return cell
+        
+    }
+    
+    
 }

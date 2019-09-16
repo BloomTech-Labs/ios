@@ -10,8 +10,9 @@ import UIKit
 
 enum MenuType: Int {
     case home
-    case camera
-    case profile
+    case savedCities
+    case login
+    case settings
 }
 
 class MenuTableViewController: UITableViewController {
@@ -24,11 +25,21 @@ class MenuTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let menuType = MenuType(rawValue: indexPath.row) else { return }
-        if menuType != .profile {
-            dismiss(animated: true) {
-                print("Dismissing: \(menuType)")
-            }
+        
+        switch menuType {
+        case .home:
+            dismiss(animated: true)
+            print("Dismissing: \(menuType)")
+    
+            
+        default:
+            break
         }
+       // if menuType != .savedCities {
+         //   dismiss(animated: true) {
+                print("Dismissing: \(menuType)")
+           // }
+       // }
     }
 
 }
