@@ -11,8 +11,8 @@ import UIKit
 class SavedCitiesViewController: UIViewController {
     
     
-    var savedCities: [City]? = []
-    let networkController = NetworkingController()
+    var savedCities: [ReturnedSavedCity]? = []
+    var savedCitiesController = SavedCitiesController()
     
     @IBOutlet weak var savedCityCollectionView: UICollectionView!
     
@@ -20,47 +20,44 @@ class SavedCitiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         savedCityCollectionView.delegate = self
         savedCityCollectionView.dataSource = self
         
-        networkController.getTopCities { (cities, error) in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        savedCitiesController.getAllSavedCity(completion: { (loggedInUser, error) in
             if let error = error {
                 NSLog("Error fetching saved Cities in SavedCitiesViewController: \(error)")
                 return
             }
-            
-            if let cities = cities {
+            if let cities = loggedInUser?.cities {
                 DispatchQueue.main.async {
                     self.savedCities = cities
                     self.savedCityCollectionView.reloadData()
                 }
             }
-        }
-        
-        
+            
+        })
     }
-    
     
     @IBAction func homebuttonTapped(_ sender: Any) {
         
-       
         self.dismiss(animated: true, completion: nil)
 
-        
-        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SavedDetailSegue" {
+            let destinationVC = segue.destination as! SavedCitiesDetailViewController
+            let cell = sender as! SavedCityCollectionViewCell
+            guard let index = savedCityCollectionView.indexPath(for: cell) else { return }
+            destinationVC.savedCitiesController = savedCitiesController
+            destinationVC.savedCity = savedCities?[index.item]
+        }
     }
-    */
 
 }
 

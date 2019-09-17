@@ -10,7 +10,7 @@ import UIKit
 
 class SavedCityCollectionViewCell: UICollectionViewCell {
     
-    var savedCity: City? {
+    var savedCity: ReturnedSavedCity? {
         didSet {
             updateViews()
         }
@@ -20,6 +20,7 @@ class SavedCityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cityNameLabel: UILabel!
     
     private func updateViews() {
+        
         cityNameLabel.text = savedCity?.name
         cityNameLabel.textColor = .white
         

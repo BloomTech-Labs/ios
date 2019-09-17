@@ -105,17 +105,4 @@ class NetworkingController {
     }
     
     
-    func getSavedCities(completion: @escaping (Error?) -> Void) {
-        
-        // NEED Saved Cities URL
-        let savedCitiesURL = baseURL
-        
-        var request = URLRequest(url: savedCitiesURL)
-        request.httpMethod = "GET"
-        
-        
-        
-    }
-    
-    
 }

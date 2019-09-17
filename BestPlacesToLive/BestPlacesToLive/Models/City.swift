@@ -11,11 +11,36 @@ import Foundation
 
 struct City: Codable, Equatable {
     
-    let _id: String
+    let id: String
     let name: String
-    let cost_of_living: String
-    let avg_commute_time: Float
     let photo: String
+    let scoreTotal: Float
+    let gradeTotal: String
+    let scoreCostOfLiving: Float
+    let gradeCostOfLiving: String
+    let scoreCommute: Float
+    let gradeCommute: String
+    let scoreSafety: Float
+    let gradeSafety: String
+    let scoreTolerance: Float
+    let gradeTolerance: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case photo
+        case scoreTotal = "score_total"
+        case gradeTotal = "grade_total"
+        case scoreCostOfLiving = "score_cost_of_living"
+        case gradeCostOfLiving = "grade_cost_of_living"
+        case scoreCommute = "score_commute"
+        case gradeCommute = "grade_commute"
+        case scoreSafety = "score_safety"
+        case gradeSafety = "grade_safety"
+        case scoreTolerance = "score_tolerance"
+        case gradeTolerance = "grade_tolerance"
+        
+    }
 }
 
 struct TopCities: Codable {
@@ -24,4 +49,36 @@ struct TopCities: Codable {
 
 struct SearchedCities: Codable {
     var cities: [City]
+}
+
+struct CityIDs: Codable {
+    var ids: [String]
+}
+
+struct SavedCity: Codable {
+    let cityID: String
+    let cityName: String
+    let cityPhoto: String
+    
+    enum CodingKeys: String, CodingKey {
+        case cityID = "city_id"
+        case cityName = "city_name"
+        case cityPhoto = "city_photo"
+    }
+}
+
+struct ReturnedSavedCity: Codable {
+    let id: String
+    let name: String
+    let photo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+        case photo
+    }
+}
+
+struct CityData: Codable {
+    let data: [City]
 }

@@ -11,9 +11,16 @@ import Foundation
 struct LoggedInUser: Codable {
     
     let name: String
-    let password: String
-    let _id: String
+    let id: String
     let email: String
-    let __v: Int
+    let cities: [ReturnedSavedCity]
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id = "_id"
+        case email
+        case cities
+    }
     
 }

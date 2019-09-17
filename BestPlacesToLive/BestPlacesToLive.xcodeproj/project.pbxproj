@@ -18,6 +18,8 @@
 		427B73F52306111D0070C334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F32306111D0070C334 /* Main.storyboard */; };
 		427B73F72306111E0070C334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F62306111E0070C334 /* Assets.xcassets */; };
 		427B73FA2306111E0070C334 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427B73F82306111E0070C334 /* LaunchScreen.storyboard */; };
+		42B67D0A2330316E006EC241 /* SavedCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B67D092330316E006EC241 /* SavedCitiesController.swift */; };
+		42B67D0C23303763006EC241 /* SavedCitiesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B67D0B23303763006EC241 /* SavedCitiesDetailViewController.swift */; };
 		42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8B7B123104D6A00EB999D /* MenuTableViewController.swift */; };
 		42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8B7B323104E8300EB999D /* SlideInTransition.swift */; };
 		ACA80933230EF91900DC61EE /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA80932230EF91900DC61EE /* CityCollectionViewCell.swift */; };
@@ -46,6 +48,8 @@
 		427B73F62306111E0070C334 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		427B73F92306111E0070C334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		427B73FB2306111E0070C334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B67D092330316E006EC241 /* SavedCitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCitiesController.swift; sourceTree = "<group>"; };
+		42B67D0B23303763006EC241 /* SavedCitiesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCitiesDetailViewController.swift; sourceTree = "<group>"; };
 		42F8B7B123104D6A00EB999D /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		42F8B7B323104E8300EB999D /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		ACA80932230EF91900DC61EE /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				ACF3C77A2329981A00AF15B9 /* MapViewController.swift */,
 				ACF3C77C232BFB2000AF15B9 /* SavedCitiesViewController.swift */,
 				ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */,
+				42B67D0B23303763006EC241 /* SavedCitiesDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				ACA8093C230EFA2400DC61EE /* NetworkController.swift */,
 				4217D3A623158F96002B601F /* LoginController.swift */,
+				42B67D092330316E006EC241 /* SavedCitiesController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -249,10 +255,12 @@
 				ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */,
 				424FE85723148D4600088332 /* LoginViewController.swift in Sources */,
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
+				42B67D0C23303763006EC241 /* SavedCitiesDetailViewController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
 				ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */,
 				420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */,
+				42B67D0A2330316E006EC241 /* SavedCitiesController.swift in Sources */,
 				ACA80940230EFCDD00DC61EE /* City.swift in Sources */,
 				ACF3C77D232BFB2000AF15B9 /* SavedCitiesViewController.swift in Sources */,
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
