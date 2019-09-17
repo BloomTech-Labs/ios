@@ -25,9 +25,13 @@ class CityCollectionViewCell: UICollectionViewCell {
     private func updateViews() {
     
         nameLabel.text = city?.name
+        if city?.photo == "https://letsmovehomie-city-photoes.nyc3.digitaloceanspaces.com/no-photo-available.jpg" {
+            nameLabel.textColor = .black
+            nameLabel.font = .boldSystemFont(ofSize: 18)
+        } else {
         nameLabel.textColor = .white
         nameLabel.alpha = 1.0
-        
+        }
         
         do {
             let cityUrl = URL(string: city!.photo)

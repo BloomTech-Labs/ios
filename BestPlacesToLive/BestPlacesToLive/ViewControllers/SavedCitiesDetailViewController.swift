@@ -30,7 +30,6 @@ class SavedCitiesDetailViewController: UIViewController {
         guard let savedCitiesController = savedCitiesController else { return }
         guard let savedID = savedCity?.id else { return }
         let cityID = CityIDs(ids: [savedID])
-        print(cityID)
         savedCitiesController.getSavedCityDetails(cityIDs: cityID) { (city, error) in
             if let error = error {
                 NSLog("Error getting city info: \(error)")
@@ -49,9 +48,8 @@ class SavedCitiesDetailViewController: UIViewController {
     func updateViews() {
         guard isViewLoaded else { return }
         if let city = city {
-            costOfLivingLabel.text = "Cost of living: \(city.costOfLiving)"
-            let commute = String(city.avgCommuteTime)
-            avgCommuteTimeLabel.text = "Average commute time: \(commute)"
+            costOfLivingLabel.text = "Cost of living Grade: \(city.gradeCostOfLiving)"
+            avgCommuteTimeLabel.text = "Commute Time Grade: \(city.gradeCommute)"
             let imageURL = URL(string: city.photo)!
             let data = try! Data(contentsOf: imageURL)
             savedCityImageView.image = UIImage(data: data)
@@ -73,7 +71,5 @@ class SavedCitiesDetailViewController: UIViewController {
             }
         })
     }
-    
- 
 
 }

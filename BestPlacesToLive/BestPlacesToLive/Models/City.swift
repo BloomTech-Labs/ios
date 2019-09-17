@@ -13,16 +13,33 @@ struct City: Codable, Equatable {
     
     let id: String
     let name: String
-    let costOfLiving: String
-    let avgCommuteTime: Float
     let photo: String
+    let scoreTotal: Float
+    let gradeTotal: String
+    let scoreCostOfLiving: Float
+    let gradeCostOfLiving: String
+    let scoreCommute: Float
+    let gradeCommute: String
+    let scoreSafety: Float
+    let gradeSafety: String
+    let scoreTolerance: Float
+    let gradeTolerance: String
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case costOfLiving = "cost_of_living"
-        case avgCommuteTime = "avg_commute_time"
         case name
         case photo
+        case scoreTotal = "score_total"
+        case gradeTotal = "grade_total"
+        case scoreCostOfLiving = "score_cost_of_living"
+        case gradeCostOfLiving = "grade_cost_of_living"
+        case scoreCommute = "score_commute"
+        case gradeCommute = "grade_commute"
+        case scoreSafety = "score_safety"
+        case gradeSafety = "grade_safety"
+        case scoreTolerance = "score_tolerance"
+        case gradeTolerance = "grade_tolerance"
+        
     }
 }
 

@@ -42,8 +42,8 @@ class CityDetailViewController: UIViewController {
         
         navigationItem.title = city.name
         
-        costOfLivingLabel.text = String("Cost of Living: \(city.costOfLiving)")
-        commuteTimeLabel.text = "Average Commute Time: \(city.avgCommuteTime)"
+        costOfLivingLabel.text = String("Cost of Living Grade: \(city.gradeCostOfLiving)")
+        commuteTimeLabel.text = "Commute Time Grade: \(city.gradeCommute)"
         let cityUrl = URL(string: city.photo)
         do {
             let data = try Data(contentsOf: cityUrl!)

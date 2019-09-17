@@ -20,6 +20,7 @@ class SavedCityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cityNameLabel: UILabel!
     
     private func updateViews() {
+        
         cityNameLabel.text = savedCity?.name
         cityNameLabel.textColor = .white
         
