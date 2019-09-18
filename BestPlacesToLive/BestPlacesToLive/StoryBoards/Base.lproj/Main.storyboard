@@ -273,8 +273,10 @@
                         <viewLayoutGuide key="safeArea" id="DPQ-hl-ltd"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextField" destination="aDv-mK-jxU" id="PXm-B9-pGa"/>
                         <outlet property="profilePhotoView" destination="LiJ-Sr-OMW" id="Jay-BO-iWp"/>
                         <outlet property="userImageView" destination="PQi-kk-EtB" id="b4O-jV-KLI"/>
+                        <outlet property="userNameTextField" destination="x5l-pz-6af" id="ESP-Yy-YIa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcD-J0-eHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -828,7 +830,6 @@
         <!--Navigation Controller-->
         <scene sceneID="9FB-ak-J6n">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aw8-1Q-TmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cbw-5t-2Om" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bP0-Mz-AnL">
@@ -840,6 +841,7 @@
                         <segue destination="GCa-FA-Cgh" kind="relationship" relationship="rootViewController" id="Nw4-BJ-as7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aw8-1Q-TmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3328" y="-200"/>
         </scene>

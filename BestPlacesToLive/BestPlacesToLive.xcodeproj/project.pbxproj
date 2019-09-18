@@ -32,6 +32,7 @@
 		ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */; };
 		ACF3C781232C0E5D00AF15B9 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */; };
 		ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */; };
+		ACF3C7852331720200AF15B9 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C7842331720200AF15B9 /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCityCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		ACF3C7842331720200AF15B9 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				ACA8093C230EFA2400DC61EE /* NetworkController.swift */,
 				4217D3A623158F96002B601F /* LoginController.swift */,
 				42B67D092330316E006EC241 /* SavedCitiesController.swift */,
+				ACF3C7842331720200AF15B9 /* UserController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */,
 				424FE85723148D4600088332 /* LoginViewController.swift in Sources */,
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
+				ACF3C7852331720200AF15B9 /* UserController.swift in Sources */,
 				42B67D0C23303763006EC241 /* SavedCitiesDetailViewController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
