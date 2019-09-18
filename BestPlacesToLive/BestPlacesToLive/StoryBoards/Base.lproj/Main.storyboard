@@ -523,7 +523,6 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="NCB-uQ-Qgq" secondAttribute="trailing" constant="307" id="0Hp-un-pTr"/>
                                                 <constraint firstItem="NCB-uQ-Qgq" firstAttribute="leading" secondItem="THM-gy-TfM" secondAttribute="trailing" constant="16" id="Dag-jv-Kal"/>
                                                 <constraint firstAttribute="bottom" secondItem="Jq9-QD-vpr" secondAttribute="bottom" id="GHN-57-F0k"/>
                                                 <constraint firstItem="THM-gy-TfM" firstAttribute="leading" secondItem="IkT-44-YZM" secondAttribute="leading" constant="16" id="Mk4-7r-Icj"/>
@@ -570,7 +569,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="wdq-GL-tfX" secondAttribute="trailing" id="dOj-4M-ZYM"/>
                                                 <constraint firstItem="DCQ-f0-eTl" firstAttribute="centerY" secondItem="lhT-cV-sk0" secondAttribute="centerY" id="fq8-sB-7wR"/>
                                                 <constraint firstAttribute="bottom" secondItem="wdq-GL-tfX" secondAttribute="bottom" id="jBJ-Hg-Gfv"/>
-                                                <constraint firstAttribute="trailing" secondItem="DCQ-f0-eTl" secondAttribute="trailing" constant="257" id="oWQ-zn-6fd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -606,7 +604,6 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="UvD-M4-v1A" secondAttribute="trailing" constant="311.5" id="1Hc-6i-GBq"/>
                                                 <constraint firstAttribute="bottom" secondItem="xOn-dl-9ju" secondAttribute="bottom" id="8dS-Ut-iBq"/>
                                                 <constraint firstItem="8TL-8A-N8G" firstAttribute="leading" secondItem="A5o-TF-WOn" secondAttribute="leading" constant="16" id="DDs-IV-VGz"/>
                                                 <constraint firstItem="8TL-8A-N8G" firstAttribute="centerY" secondItem="A5o-TF-WOn" secondAttribute="centerY" id="TUv-6W-HxS"/>
@@ -656,7 +653,6 @@
                                                 <constraint firstItem="MGW-Mu-ngh" firstAttribute="centerY" secondItem="swd-MU-eGv" secondAttribute="centerY" id="aTs-Ir-D0T"/>
                                                 <constraint firstItem="QhT-lf-MNx" firstAttribute="leading" secondItem="MGW-Mu-ngh" secondAttribute="trailing" constant="16" id="l8f-zs-KE2"/>
                                                 <constraint firstAttribute="bottom" secondItem="bKV-Qg-kJ4" secondAttribute="bottom" id="oau-y1-wKn"/>
-                                                <constraint firstAttribute="trailing" secondItem="QhT-lf-MNx" secondAttribute="trailing" constant="306" id="um2-kR-fti"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

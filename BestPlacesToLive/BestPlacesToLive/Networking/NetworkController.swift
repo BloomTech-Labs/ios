@@ -18,9 +18,9 @@ class NetworkingController {
     
     func getTopCities(completion: @escaping ([City]?, Error?) -> Void) {
         
-        let topCitiesURL = baseURL.appendingPathComponent("topten-cost-of-living/")
+        let topCitiesURL = baseURL.appendingPathComponent("top")
         var request = URLRequest(url: topCitiesURL)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         
         let decoder = JSONDecoder()
         
@@ -40,6 +40,7 @@ class NetworkingController {
             do {
                 let decodedCities = try decoder.decode(TopCities.self, from: data)
                 let cities = decodedCities.cities
+                print(cities)
                 completion(cities, nil)
                 
             } catch {

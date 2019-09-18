@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             if let cities = cities {
                 DispatchQueue.main.async {
                     self.cities = cities
+                    print("Top TEN Cities! \(self.cities)")
                     self.cityCollectionView.reloadData()
                 }
             }
@@ -143,8 +144,27 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-    
+        let category = networkController.categories[indexPath.item]
+        networkController.fetchCategory(category: category) { (cities, error) in
+            if let error = error {
+                NSLog("Error getting categories to render: \(error)")
+                return
+            }
+
+            if let cities = cities {
+                DispatchQueue.main.async {
+                    self.cities = cities
+                    self.cityCollectionView.reloadData()
+
+                }
+            }
+
+
+        }
+    }
+
 }
 
 
