@@ -32,6 +32,9 @@
 		ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */; };
 		ACF3C781232C0E5D00AF15B9 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */; };
 		ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */; };
+		ACF3C7852331720200AF15B9 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C7842331720200AF15B9 /* UserController.swift */; };
+		ACF3C787233295C600AF15B9 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C786233295C600AF15B9 /* CategoryCollectionViewCell.swift */; };
+		ACF3C78B2332A1E600AF15B9 /* CityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C78A2332A1E600AF15B9 /* CityCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCityCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACF3C780232C0E5D00AF15B9 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		ACF3C782232C0E9400AF15B9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		ACF3C7842331720200AF15B9 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		ACF3C786233295C600AF15B9 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACF3C78A2332A1E600AF15B9 /* CityCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 			children = (
 				ACA80932230EF91900DC61EE /* CityCollectionViewCell.swift */,
 				ACF3C77E232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift */,
+				ACF3C786233295C600AF15B9 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 				ACA8093C230EFA2400DC61EE /* NetworkController.swift */,
 				4217D3A623158F96002B601F /* LoginController.swift */,
 				42B67D092330316E006EC241 /* SavedCitiesController.swift */,
+				ACF3C7842331720200AF15B9 /* UserController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				420EBD09231EC582006B61E6 /* LoggedInUser.swift */,
 				4217D3A82315947B002B601F /* Bearer.swift */,
 				42370420232AE8B100A7D8F5 /* SearchTerm.swift */,
+				ACF3C78A2332A1E600AF15B9 /* CityCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 				ACF3C783232C0E9400AF15B9 /* UserProfileViewController.swift in Sources */,
 				424FE85723148D4600088332 /* LoginViewController.swift in Sources */,
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
+				ACF3C7852331720200AF15B9 /* UserController.swift in Sources */,
 				42B67D0C23303763006EC241 /* SavedCitiesDetailViewController.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
@@ -264,8 +274,10 @@
 				ACA80940230EFCDD00DC61EE /* City.swift in Sources */,
 				ACF3C77D232BFB2000AF15B9 /* SavedCitiesViewController.swift in Sources */,
 				42F8B7B423104E8300EB999D /* SlideInTransition.swift in Sources */,
+				ACF3C78B2332A1E600AF15B9 /* CityCategory.swift in Sources */,
 				4217D3A92315947B002B601F /* Bearer.swift in Sources */,
 				ACF3C781232C0E5D00AF15B9 /* ViewController+Extension.swift in Sources */,
+				ACF3C787233295C600AF15B9 /* CategoryCollectionViewCell.swift in Sources */,
 				42370421232AE8B100A7D8F5 /* SearchTerm.swift in Sources */,
 				420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */,
 				ACF3C77923295B3800AF15B9 /* CityDetailViewController.swift in Sources */,

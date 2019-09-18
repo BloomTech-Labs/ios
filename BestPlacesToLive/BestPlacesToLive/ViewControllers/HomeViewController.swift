@@ -18,10 +18,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cityCollectionView: UICollectionView!
-    @IBOutlet weak var incomeButton: UIButton!
-    @IBOutlet weak var weatherButton: UIButton!
-    @IBOutlet weak var schoolButton: UIButton!
-    @IBOutlet weak var crimeButton: UIButton!
+    
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -30,8 +28,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         self.cityCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
+        self.categoryCollectionView.delegate = self
         
-        setupCategoryButtons()
+        self.categoryCollectionView.dataSource = self
+       
       
         networkController.getTopCities { (cities, error) in
             if let error = error {
@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             if let cities = cities {
                 DispatchQueue.main.async {
                     self.cities = cities
+                    print("Top TEN Cities! \(self.cities)")
                     self.cityCollectionView.reloadData()
                 }
             }
@@ -71,30 +72,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     
-    @IBAction func swipeGesterUsed(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "SwipeSegue", sender: self)
-        print("Swipe Gesture Hit!!")
-    }
     
-    private func setupCategoryButtons() {
-        incomeButton.setTitle("income", for: .normal)
-        //  incomeButton.setBackgroundImage(UIImage(named: "Income"), for: .normal)
-        incomeButton.layer.cornerRadius = 20.0
-        
-        
-        weatherButton.setTitle("weather", for: .normal)
-        //  weatherButton.setBackgroundImage(UIImage(named: "Weather"), for: .normal)
-        weatherButton.layer.cornerRadius = 20.0
-        
-        schoolButton.setTitle("School", for: .normal)
-        //    schoolButton.setBackgroundImage(UIImage(named: "School"), for: .normal)
-        schoolButton.layer.cornerRadius = 20.0
-        
-        crimeButton.setTitle("Crime", for: .normal)
-        //  crimeButton.setBackgroundImage(UIImage(named: "Crime"), for: .normal)
-        crimeButton.layer.cornerRadius = weatherButton.frame.width / 2
-    }
+    
+    
     
     @IBAction func menuButtonTapped(_ sender: Any) {
         guard let menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
@@ -105,9 +85,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    func switchToNew(_ menuType: MenuType) {
-        
-    }
+    
     
     
     
@@ -140,21 +118,53 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == categoryCollectionView {
+            return networkController.categories.count
+        }
         return cities?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == cityCollectionView {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCell", for: indexPath) as? CityCollectionViewCell else { fatalError() }
        let city = cities?[indexPath.row]
         cell.city = city
         cell.layer.cornerRadius = 20.0
         cell.layer.borderWidth = 1
         return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as? CategoryCollectionViewCell else { fatalError() }
+            
+            let cityCategory = networkController.categories[indexPath.item]
+            cell.cityCategory = cityCategory
+            
+            return cell
+        }
     }
     
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let category = networkController.categories[indexPath.item]
+        networkController.fetchCategory(category: category) { (cities, error) in
+            if let error = error {
+                NSLog("Error getting categories to render: \(error)")
+                return
+            }
+
+            if let cities = cities {
+                DispatchQueue.main.async {
+                    self.cities = cities
+                    self.cityCollectionView.reloadData()
+
+                }
+            }
+
+
+        }
+    }
+
 }
 
 

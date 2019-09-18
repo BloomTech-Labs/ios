@@ -12,6 +12,9 @@ import Photos
 class UserProfileViewController: UIViewController {
     
     
+    let userController = UserController()
+    
+    
     private var originalImage: UIImage? {
         didSet {
             updateImageView()
@@ -23,10 +26,15 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        profilePhotoView.layer.cornerRadius = profilePhotoView.frame.width / 2
+     //   profilePhotoView.layer.cornerRadius = profilePhotoView.frame.width / 2
         userImageView.clipsToBounds = true
     }
     
@@ -34,13 +42,34 @@ class UserProfileViewController: UIViewController {
         
         guard let image = originalImage else { return }
         userImageView.image = image
-        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+       userImageView.layer.cornerRadius = userImageView.frame.width / 2
        // profilePhotoView.layer.cornerRadius = profilePhotoView.frame.width / 2
         userImageView.clipsToBounds = true
     }
     
     
     @IBAction func saveProfileUpdatesButtonTapped(_ sender: Any) {
+        
+        guard let userName = userNameTextField.text, !userName.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        
+   
+        let user = UpdateUser(name: userName, password: password)
+        
+        
+        userController.updateUser(user: user) { (loggedUser, error) in
+            
+            if let error = error {
+                NSLog("Error updating User: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                print(loggedUser)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        
     }
     
     
