@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkingController {
     
     private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/city/")!
+    
+    var categories: [CityCategory] = [CityCategory(name: "score_cost_of_living", image: UIImage(named: "budget")), CityCategory(name: "score_commute", image: UIImage(named: "travel")), CityCategory(name: "score_safety", image: UIImage(named: "police")) ,CityCategory(name: "score_tolerance", image: UIImage(named: "tolerance"))]
     
     
     func getTopCities(completion: @escaping ([City]?, Error?) -> Void) {
@@ -46,7 +49,7 @@ class NetworkingController {
                 
             }
             }.resume()
-        }
+    }
     
     func searchCities(searchTerm: String, completion: @escaping ([City]?, Error?) -> Void) {
         
@@ -101,7 +104,48 @@ class NetworkingController {
                 completion(nil, error)
                 return
             }
-        }.resume()
+            }.resume()
+    }
+    
+    func fetchCategory(category: CityCategory , completion: @escaping([City]?, Error?) -> Void) {
+        
+        let url = baseURL.appendingPathComponent("top")
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        let filterQueryItem = URLQueryItem(name: "filter", value: category.name)
+        urlComponents?.queryItems = [filterQueryItem]
+        guard let request = urlComponents?.url else { return }
+        
+        var urlRequest = URLRequest(url: request)
+        urlRequest.httpMethod = "POST"
+        
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+            if let error = error {
+                NSLog("Error getting cities by categories: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Bad Data from categories networkCall")
+                completion(nil, NSError())
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let decodedCities = try decoder.decode(TopCities.self, from: data)
+                let cities = decodedCities.cities
+                completion(cities, nil)
+                
+                
+            } catch {
+                NSLog("Error getting Category Cities: \(error)")
+                completion(nil, error)
+                return
+            }
+            }.resume()
     }
     
     
