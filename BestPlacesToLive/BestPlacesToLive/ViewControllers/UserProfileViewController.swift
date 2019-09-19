@@ -48,6 +48,8 @@ class UserProfileViewController: UIViewController {
     }
     
     
+    
+    
     @IBAction func saveProfileUpdatesButtonTapped(_ sender: Any) {
         
         guard let userName = userNameTextField.text, !userName.isEmpty else { return }
@@ -64,7 +66,6 @@ class UserProfileViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                print(loggedUser)
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -73,6 +74,9 @@ class UserProfileViewController: UIViewController {
     }
     
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func changeProfileButtonTapped(_ sender: Any) {

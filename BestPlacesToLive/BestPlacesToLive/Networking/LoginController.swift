@@ -27,8 +27,6 @@ class LoginController {
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
-            print(String(data: jsonData, encoding: .utf8)!)
-            print(request)
         } catch {
             print("Error encoding user: \(error)")
             completion(error)

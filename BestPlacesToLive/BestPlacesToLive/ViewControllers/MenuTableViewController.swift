@@ -22,7 +22,21 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
 
     }
-
+    
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if let ident = identifier {
+            if ident == "SavedCitySegue" {
+                if UserDefaults.standard.object(forKey: "token") == nil {
+                    return false
+                }
+            } else if ident == "ProfileSegue" {
+                if UserDefaults.standard.object(forKey: "token") == nil {
+                    return false
+                }
+            }
+        }
+        return true
+    }
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let menuType = MenuType(rawValue: indexPath.row) else { return }
@@ -31,23 +45,34 @@ class MenuTableViewController: UITableViewController {
         case .home:
             dismiss(animated: true)
             print("Dismissing: \(menuType)")
+            
         case .savedCities:
-            if UserDefaults.standard.object(forKey: "token") == nil {
-                let alert = UIAlertController(title: "Not Logged In", message: "Please log in or create an account.", preferredStyle: .alert)
-                alert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
-                self.present(alert, animated: true)
+            if UserDefaults.standard.value(forKey: "token") == nil {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Not Logged In", message: "Please log in or create an account.", preferredStyle: .alert)
+                    alert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
+                    self.present(alert, animated: true)
+                }
             }
+            
         case .login:
             break
+            
         case .profile:
-            if UserDefaults.standard.object(forKey: "token") == nil {
-                let alert = UIAlertController(title: "Not Logged In", message: "Please log in or create an account.", preferredStyle: .alert)
-                alert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
-                self.present(alert, animated: true)
+            if UserDefaults.standard.value(forKey: "token") == nil {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Not Logged In", message: "Please log in or create an account.", preferredStyle: .alert)
+                    alert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
+                    self.present(alert, animated: true)
+                }
             }
+            
         case .logout:
             UserDefaults.standard.removeObject(forKey: "token")
             UserDefaults.standard.removeObject(forKey: "userName")
+            let alert = UIAlertController(title: "Log Out Successful", message: "You have been logged out.", preferredStyle: .alert)
+            alert.addAction((UIAlertAction(title: "OK", style: .default, handler: nil)))
+            self.present(alert, animated: true)
         }
       
     }

@@ -150,7 +150,11 @@
                         <viewLayoutGuide key="safeArea" id="81j-hT-5bj"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pdo-L0-cks">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="NdH-AV-zCr"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="NdH-AV-zCr">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="iHX-9L-htF" id="1qJ-10-bko"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="wiB-Oo-BDW" id="jKn-gW-fXR"/>
@@ -278,7 +282,11 @@
                         <viewLayoutGuide key="safeArea" id="DPQ-hl-ltd"/>
                     </view>
                     <navigationItem key="navigationItem" id="9IR-Pn-Sfg">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="7W0-JX-lmH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="7W0-JX-lmH">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="pwy-WA-if6" id="0xi-QI-Hrv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="aDv-mK-jxU" id="PXm-B9-pGa"/>
