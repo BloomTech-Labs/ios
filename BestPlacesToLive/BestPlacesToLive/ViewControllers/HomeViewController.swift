@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     let transition = SlideInTransition()
     var cities: [City]?
     var topView: UIView?
+    private var spacing: CGFloat = 32.0
     
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -28,9 +29,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
         self.cityCollectionView.delegate = self
         self.cityCollectionView.dataSource = self
-        self.categoryCollectionView.delegate = self
+        setupCategoryCollectionView()
         
-        self.categoryCollectionView.dataSource = self
        
       
         networkController.getTopCities { (cities, error) in
@@ -48,6 +48,21 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         }
         
     }
+    
+    private func setupCategoryCollectionView() {
+        
+        self.categoryCollectionView.delegate = self
+        self.categoryCollectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        
+        self.categoryCollectionView.collectionViewLayout = layout
+        
+        
+        
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -160,10 +175,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
                 }
             }
-
-
         }
     }
+    
+    
 
 }
 
