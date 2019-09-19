@@ -41,7 +41,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             if let cities = cities {
                 DispatchQueue.main.async {
                     self.cities = cities
-                    print("Top TEN Cities! \(self.cities)")
                     self.cityCollectionView.reloadData()
                 }
             }
@@ -71,11 +70,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    
-    
-    
-    
-    
     @IBAction func menuButtonTapped(_ sender: Any) {
         guard let menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") else { return }
         menuTableViewController.modalPresentationStyle = .overCurrentContext
@@ -85,37 +79,24 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
     }
     
-    
-    
-    
-    
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  
         if segue.identifier == "CityDetailSegue" {
             guard let detailView = segue.destination as? CityDetailViewController,
                 let cell = sender as? CityCollectionViewCell,
                 let indexPath = cityCollectionView.indexPath(for: cell) else { return }
             detailView.city = cities?[indexPath.item]
             
-            
-            
-            
         }
         
     }
-    
 
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -146,23 +127,24 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        let category = networkController.categories[indexPath.item]
-        networkController.fetchCategory(category: category) { (cities, error) in
-            if let error = error {
-                NSLog("Error getting categories to render: \(error)")
-                return
-            }
-
-            if let cities = cities {
-                DispatchQueue.main.async {
-                    self.cities = cities
-                    self.cityCollectionView.reloadData()
-
+        if collectionView == categoryCollectionView {
+            let category = networkController.categories[indexPath.item]
+            networkController.fetchCategory(category: category) { (cities, error) in
+                if let error = error {
+                    NSLog("Error getting categories to render: \(error)")
+                    return
+                }
+                
+                if let cities = cities {
+                    DispatchQueue.main.async {
+                        self.cities = cities
+                        self.cityCollectionView.reloadData()
+                        
+                    }
                 }
             }
-
-
         }
+
     }
 
 }

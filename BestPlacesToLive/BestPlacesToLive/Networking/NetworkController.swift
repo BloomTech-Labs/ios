@@ -40,7 +40,6 @@ class NetworkingController {
             do {
                 let decodedCities = try decoder.decode(TopCities.self, from: data)
                 let cities = decodedCities.cities
-                print(cities)
                 completion(cities, nil)
                 
             } catch {
@@ -65,8 +64,6 @@ class NetworkingController {
         do {
             let jsonData = try jsonEncoder.encode(cityToSearch)
             request.httpBody = jsonData
-            print(String(data: jsonData, encoding: .utf8)!)
-            print(request)
         } catch {
             print("Error encoding user: \(error)")
             completion(nil, error)
