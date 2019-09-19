@@ -150,7 +150,11 @@
                         <viewLayoutGuide key="safeArea" id="81j-hT-5bj"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pdo-L0-cks">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="NdH-AV-zCr"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="NdH-AV-zCr">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="iHX-9L-htF" id="1qJ-10-bko"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="wiB-Oo-BDW" id="jKn-gW-fXR"/>
@@ -278,7 +282,11 @@
                         <viewLayoutGuide key="safeArea" id="DPQ-hl-ltd"/>
                     </view>
                     <navigationItem key="navigationItem" id="9IR-Pn-Sfg">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="7W0-JX-lmH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="7W0-JX-lmH">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="pwy-WA-if6" id="0xi-QI-Hrv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="aDv-mK-jxU" id="PXm-B9-pGa"/>
@@ -540,7 +548,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="lhT-cV-sk0">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_icon_round" translatesAutoresizingMaskIntoConstraints="NO" id="lhT-cV-sk0">
                                                     <rect key="frame" x="16" y="38" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="CAx-C3-aDi"/>
@@ -582,7 +590,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="8TL-8A-N8G">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginred" translatesAutoresizingMaskIntoConstraints="NO" id="8TL-8A-N8G">
                                                     <rect key="frame" x="16" y="38" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="sMk-dc-Hk5"/>
@@ -658,6 +666,45 @@
                                         <connections>
                                             <segue destination="s7b-eO-E63" kind="show" identifier="ProfileSegue" id="18D-2K-vZx"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="a2n-fa-4AQ">
+                                        <rect key="frame" x="0.0" y="435" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2n-fa-4AQ" id="Oss-m2-IQq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutred" translatesAutoresizingMaskIntoConstraints="NO" id="1J4-OS-NBt">
+                                                    <rect key="frame" x="16" y="38" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="Sk0-Ww-YQB"/>
+                                                        <constraint firstAttribute="width" constant="24" id="Tep-Th-6f6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqV-MR-Ew2">
+                                                    <rect key="frame" x="56" y="37.5" width="58.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbP-YZ-Rxh">
+                                                    <rect key="frame" x="16" y="98" width="398" height="2"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="Frw-4x-bpa"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rbP-YZ-Rxh" firstAttribute="leading" secondItem="Oss-m2-IQq" secondAttribute="leading" constant="16" id="68a-4r-jeY"/>
+                                                <constraint firstItem="aqV-MR-Ew2" firstAttribute="leading" secondItem="1J4-OS-NBt" secondAttribute="trailing" constant="16" id="8B5-Nf-X5o"/>
+                                                <constraint firstAttribute="trailing" secondItem="rbP-YZ-Rxh" secondAttribute="trailing" id="F2X-M0-Hpb"/>
+                                                <constraint firstAttribute="bottom" secondItem="rbP-YZ-Rxh" secondAttribute="bottom" id="I97-oU-4lV"/>
+                                                <constraint firstItem="aqV-MR-Ew2" firstAttribute="centerY" secondItem="1J4-OS-NBt" secondAttribute="centerY" id="aqF-Kt-90b"/>
+                                                <constraint firstItem="1J4-OS-NBt" firstAttribute="centerY" secondItem="Oss-m2-IQq" secondAttribute="centerY" id="odL-Td-VVV"/>
+                                                <constraint firstItem="1J4-OS-NBt" firstAttribute="leading" secondItem="Oss-m2-IQq" secondAttribute="leading" constant="16" id="sEx-kI-YlG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -867,7 +914,6 @@
         <!--Navigation Controller-->
         <scene sceneID="l06-UB-hfX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hGt-VO-0Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ufc-O4-GPG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bp6-7X-1yk">
@@ -879,6 +925,7 @@
                         <segue destination="iHX-9L-htF" kind="relationship" relationship="rootViewController" id="AsG-DU-q3K"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hGt-VO-0Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2363.768115942029" y="831.69642857142856"/>
         </scene>
@@ -902,8 +949,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" width="48" height="48"/>
+        <image name="heart_icon_round" width="72" height="72"/>
         <image name="home" width="24" height="24"/>
+        <image name="loginred" width="225" height="225"/>
+        <image name="logoutred" width="225" height="225"/>
         <image name="menu" width="24" height="24"/>
         <image name="profile" width="24" height="24"/>
     </resources>
