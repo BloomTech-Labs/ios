@@ -55,6 +55,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
+        layout.scrollDirection = .horizontal
         self.categoryCollectionView.collectionViewLayout = layout
         
     }
