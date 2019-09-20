@@ -60,10 +60,17 @@ class CityDetailViewController: UIViewController {
         let savedCity = SavedCity(cityID: city.id, cityName: city.name, cityPhoto: city.photo)
         savedCitiesController.addSavedCity(savedCity: savedCity) { (loggedInUser, error) in
             if let error = error {
-                //Present Alert: Could not save city to favorites
-                NSLog("Error saving city: \(error)")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error saving city", message: "\(error)", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true)
+                }
             } else {
-                //Present Alert. "City Saved to favorites"
+                let alertController = UIAlertController(title: "Success!", message: "City was saved.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
                 print("Saved Cities: \(loggedInUser?.cities as Any)")
             }
         }

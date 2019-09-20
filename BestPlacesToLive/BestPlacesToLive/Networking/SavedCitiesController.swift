@@ -10,6 +10,7 @@ import Foundation
 
 class SavedCitiesController {
 
+    var errorMessage: ErrorMessage?
     private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/users/profile/")!
     
     func addSavedCity(savedCity: SavedCity, completion: @escaping (LoggedInUser?, Error?) -> Void) {
@@ -18,8 +19,9 @@ class SavedCitiesController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let token = UserDefaults.standard.object(forKey: "token")
-        request.addValue(token as! String, forHTTPHeaderField: "Authorization")
-        
+        if token != nil {
+            request.addValue(token as! String, forHTTPHeaderField: "Authorization")
+        }
         let jsonEncoder = JSONEncoder()
         
         do {
@@ -36,10 +38,18 @@ class SavedCitiesController {
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                do {
+                    self.errorMessage = try decoder.decode(ErrorMessage.self, from: data)
+                    completion(nil, self.errorMessage)
+                } catch {
+                    completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                }
                 
                 return
             }
+
             
             if let error = error {
                 NSLog("Error posting saved city: \(error)")
@@ -89,7 +99,14 @@ class SavedCitiesController {
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                do {
+                    self.errorMessage = try decoder.decode(ErrorMessage.self, from: data)
+                    completion(nil, self.errorMessage)
+                } catch {
+                    completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                }
                 
                 return
             }
