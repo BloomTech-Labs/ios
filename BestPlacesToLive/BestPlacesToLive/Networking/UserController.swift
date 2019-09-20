@@ -11,6 +11,7 @@ import Foundation
 class UserController {
     
     private let baseURL = URL(string: "https://stagebe.letsmovehomie.com/users/profile/")!
+    var errorMessage: ErrorMessage?
     
     func updateUser(user: UpdateUser, completion: @escaping (LoggedInUser?, Error?) -> Void) {
         
@@ -37,7 +38,14 @@ class UserController {
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                do {
+                    self.errorMessage = try decoder.decode(ErrorMessage.self, from: data)
+                    completion(nil, self.errorMessage)
+                } catch {
+                    completion(nil, NSError(domain: "", code: response.statusCode, userInfo: nil))
+                }
                 
                 return
             }

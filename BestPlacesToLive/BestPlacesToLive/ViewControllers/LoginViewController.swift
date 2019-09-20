@@ -40,9 +40,13 @@ class LoginViewController: UIViewController {
                 
                 loginController.signUp(with: user) { (error) in
                     if let error = error {
-                        // Maybe add an alert here
-                        // Use message object being returned with error
-                        print("Error occured during sign up: \(error)")
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Error signing up", message: "\(error)", preferredStyle: .alert)
+                            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alertController.addAction(alertAction)
+                            self.present(alertController, animated: true)
+                            print("Error occured during sign up: \(error)")
+                        }
                     } else {
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
@@ -69,8 +73,13 @@ class LoginViewController: UIViewController {
                         
                 loginController.signIn(with: signInUser) { (error) in
                     if let error = error {
-                        // Maybe add an alert here
-                        print("Error occured during sign in: \(error)")
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Error signing in", message: "\(error)", preferredStyle: .alert)
+                            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alertController.addAction(alertAction)
+                            self.present(alertController, animated: true)
+                            print("Error occured during sign in: \(error)")
+                        }
                     } else {
                         UserDefaults.standard.set(self.loginController.bearer?.token, forKey: "token")
                         UserDefaults.standard.set(self.loginController.bearer?.name, forKey: "userName")

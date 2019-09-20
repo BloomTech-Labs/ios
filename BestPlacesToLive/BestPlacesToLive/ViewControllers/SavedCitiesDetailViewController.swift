@@ -63,9 +63,14 @@ class SavedCitiesDetailViewController: UIViewController {
         let cityToDelete = SavedCity(cityID: cityID, cityName: savedCity.name, cityPhoto: savedCity.photo)
         savedCitiesController?.deleteSavedCity(savedCity: cityToDelete, completion: { (loggedInUser, error) in
             if let error = error {
-                NSLog("Error deleting city: \(error)")
-                return
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error deleting city", message: "\(error)", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true)
+                }
             }
+            
             DispatchQueue.main.async {
                 self.navigationController?.popViewController(animated: true)
             }
