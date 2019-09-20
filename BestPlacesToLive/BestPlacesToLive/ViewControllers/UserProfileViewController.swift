@@ -29,6 +29,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var userNameTextField: UITextField!
     
+    @IBOutlet weak var emailTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -52,25 +53,39 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func saveProfileUpdatesButtonTapped(_ sender: Any) {
         
-        guard let userName = userNameTextField.text, !userName.isEmpty else { return }
-        guard let password = passwordTextField.text, !password.isEmpty else { return }
-        
+        var userName = userNameTextField.text
+        if userName == "" {
+            userName = nil
+        }
+        var password = passwordTextField.text
+        if password == "" {
+            password = nil
+        }
+        var email = emailTextField.text
+        if email == "" {
+            email = nil
+        }
    
-        let user = UpdateUser(name: userName, password: password)
+        let user = UpdateUser(name: userName, email: email, password: password)
         
         
         userController.updateUser(user: user) { (loggedUser, error) in
             
             if let error = error {
-                NSLog("Error updating User: \(error)")
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Error saving city", message: "\(error)", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true)
+                }
             }
-            
             DispatchQueue.main.async {
-                self.navigationController?.popViewController(animated: true)
+                let alertController = UIAlertController(title: "Success!", message: "Profile Info Updated.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
             }
         }
-        
-        
     }
     
     

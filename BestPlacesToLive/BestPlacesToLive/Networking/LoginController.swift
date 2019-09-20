@@ -107,7 +107,6 @@ class LoginController {
                 completion(NSError())
                 return
             }
-            print(String(decoding: data, as: UTF8.self))
             let decoder = JSONDecoder()
             do {
                self.bearer = try decoder.decode(Bearer.self, from: data)
