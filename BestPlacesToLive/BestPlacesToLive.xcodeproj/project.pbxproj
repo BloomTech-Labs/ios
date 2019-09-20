@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD09231EC582006B61E6 /* LoggedInUser.swift */; };
 		420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD0B231ECAEA006B61E6 /* SignInUser.swift */; };
+		4212629D233540D700B705E1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212629C233540D700B705E1 /* ErrorMessage.swift */; };
 		4217D3A523158ED6002B601F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A423158ED6002B601F /* User.swift */; };
 		4217D3A723158F96002B601F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A623158F96002B601F /* LoginController.swift */; };
 		4217D3A92315947B002B601F /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4217D3A82315947B002B601F /* Bearer.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		420EBD09231EC582006B61E6 /* LoggedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUser.swift; sourceTree = "<group>"; };
 		420EBD0B231ECAEA006B61E6 /* SignInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUser.swift; sourceTree = "<group>"; };
+		4212629C233540D700B705E1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		4217D3A423158ED6002B601F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4217D3A623158F96002B601F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4217D3A82315947B002B601F /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				4217D3A82315947B002B601F /* Bearer.swift */,
 				42370420232AE8B100A7D8F5 /* SearchTerm.swift */,
 				ACF3C78A2332A1E600AF15B9 /* CityCategory.swift */,
+				4212629C233540D700B705E1 /* ErrorMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				ACA8093D230EFA2400DC61EE /* NetworkController.swift in Sources */,
 				ACF3C7852331720200AF15B9 /* UserController.swift in Sources */,
 				42B67D0C23303763006EC241 /* SavedCitiesDetailViewController.swift in Sources */,
+				4212629D233540D700B705E1 /* ErrorMessage.swift in Sources */,
 				42F8B7B223104D6A00EB999D /* MenuTableViewController.swift in Sources */,
 				ACA80938230EF97700DC61EE /* HomeViewController.swift in Sources */,
 				ACF3C77F232BFF9400AF15B9 /* SavedCityCollectionViewCell.swift in Sources */,

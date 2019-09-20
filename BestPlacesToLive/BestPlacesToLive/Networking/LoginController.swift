@@ -14,6 +14,7 @@ class LoginController {
     
     var bearer: Bearer?
     var loggedInUser: LoggedInUser?
+    var errorMessage: ErrorMessage?
 
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
         
@@ -33,12 +34,20 @@ class LoginController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (_, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                do {
+                    self.errorMessage = try decoder.decode(ErrorMessage.self, from: data)
+                    completion(self.errorMessage)
+                } catch {
+                    completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                }
                
                 return
             }
@@ -75,7 +84,16 @@ class LoginController {
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                
+                guard let data = data else { return }
+                let decoder = JSONDecoder()
+                do {
+                    self.errorMessage = try decoder.decode(ErrorMessage.self, from: data)
+                    completion(self.errorMessage)
+                } catch {
+                    completion(NSError(domain: "", code: response.statusCode, userInfo: nil))
+                }
+                
                 return
             }
             
