@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialTextFields
 
 enum LoginType {
     case signUp
@@ -24,6 +25,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var password2TextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        styleButton()
+    }
+    
+    func styleButton() {
+        loginButton.layer.cornerRadius = 10
+    }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
