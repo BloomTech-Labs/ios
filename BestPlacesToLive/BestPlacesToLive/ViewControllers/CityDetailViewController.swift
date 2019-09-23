@@ -14,6 +14,11 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var cityImageView: UIImageView!
     @IBOutlet weak var commuteTimeLabel: UILabel!
     @IBOutlet weak var costOfLivingLabel: UILabel!
+    @IBOutlet weak var safetyLabel: UILabel!
+    @IBOutlet weak var toleranceLabel: UILabel!
+    
+    
+    
     var savedCitiesController = SavedCitiesController()
     
     var city: City? {
@@ -44,6 +49,8 @@ class CityDetailViewController: UIViewController {
         
         costOfLivingLabel.text = String("Cost of Living Grade: \(city.gradeCostOfLiving)")
         commuteTimeLabel.text = "Commute Time Grade: \(city.gradeCommute)"
+        safetyLabel.text = "Safety Grade: \(city.gradeSafety)"
+        toleranceLabel.text = "Tolerance Grade: \(city.gradeTolerance)"
         let cityUrl = URL(string: city.photo)
         do {
             let data = try Data(contentsOf: cityUrl!)
