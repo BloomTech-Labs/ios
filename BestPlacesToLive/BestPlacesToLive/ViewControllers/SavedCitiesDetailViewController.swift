@@ -17,6 +17,8 @@ class SavedCitiesDetailViewController: UIViewController {
     @IBOutlet weak var savedCityImageView: UIImageView!
     @IBOutlet weak var costOfLivingLabel: UILabel!
     @IBOutlet weak var avgCommuteTimeLabel: UILabel!
+    @IBOutlet weak var safetyLabel: UILabel!
+    @IBOutlet weak var toleranceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,8 @@ class SavedCitiesDetailViewController: UIViewController {
         if let city = city {
             costOfLivingLabel.text = "Cost of living Grade: \(city.gradeCostOfLiving)"
             avgCommuteTimeLabel.text = "Commute Time Grade: \(city.gradeCommute)"
+            safetyLabel.text = "Safety Grade: \(city.gradeSafety)"
+            toleranceLabel.text = "Tolerance Grade: \(city.gradeTolerance)"
             let imageURL = URL(string: city.photo)!
             let data = try! Data(contentsOf: imageURL)
             savedCityImageView.image = UIImage(data: data)
