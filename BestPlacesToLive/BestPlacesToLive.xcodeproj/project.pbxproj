@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4209262C233A7B7F00A2587F /* BestPlacesToLiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4209262B233A7B7F00A2587F /* BestPlacesToLiveTests.swift */; };
 		420EBD0A231EC583006B61E6 /* LoggedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD09231EC582006B61E6 /* LoggedInUser.swift */; };
 		420EBD0C231ECAEA006B61E6 /* SignInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420EBD0B231ECAEA006B61E6 /* SignInUser.swift */; };
 		4212629D233540D700B705E1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212629C233540D700B705E1 /* ErrorMessage.swift */; };
@@ -40,22 +39,9 @@
 		C501F4C054D231A6B2BA6A0E /* Pods_BestPlacesToLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BF933687B151AB33442456 /* Pods_BestPlacesToLive.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4209262E233A7B7F00A2587F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 427B73E42306111D0070C334 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 427B73EB2306111D0070C334;
-			remoteInfo = BestPlacesToLive;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		22156F7998E9901504529654 /* Pods-BestPlacesToLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestPlacesToLive.release.xcconfig"; path = "Target Support Files/Pods-BestPlacesToLive/Pods-BestPlacesToLive.release.xcconfig"; sourceTree = "<group>"; };
 		3F3F77A93551B1F6A85F2BC5 /* Pods-BestPlacesToLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestPlacesToLive.debug.xcconfig"; path = "Target Support Files/Pods-BestPlacesToLive/Pods-BestPlacesToLive.debug.xcconfig"; sourceTree = "<group>"; };
-		42092629233A7B7F00A2587F /* BestPlacesToLiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestPlacesToLiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4209262B233A7B7F00A2587F /* BestPlacesToLiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPlacesToLiveTests.swift; sourceTree = "<group>"; };
-		4209262D233A7B7F00A2587F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		420EBD09231EC582006B61E6 /* LoggedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUser.swift; sourceTree = "<group>"; };
 		420EBD0B231ECAEA006B61E6 /* SignInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUser.swift; sourceTree = "<group>"; };
 		4212629C233540D700B705E1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -91,13 +77,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		42092626233A7B7F00A2587F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		427B73E92306111D0070C334 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,20 +96,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4209262A233A7B7F00A2587F /* BestPlacesToLiveTests */ = {
-			isa = PBXGroup;
-			children = (
-				4209262B233A7B7F00A2587F /* BestPlacesToLiveTests.swift */,
-				4209262D233A7B7F00A2587F /* Info.plist */,
-			);
-			path = BestPlacesToLiveTests;
-			sourceTree = "<group>";
-		};
 		427B73E32306111D0070C334 = {
 			isa = PBXGroup;
 			children = (
 				427B73EE2306111D0070C334 /* BestPlacesToLive */,
-				4209262A233A7B7F00A2587F /* BestPlacesToLiveTests */,
 				427B73ED2306111D0070C334 /* Products */,
 				67FE84D65130B0585D3BC5E0 /* Pods */,
 				018E8DB967D9E412D66BE54D /* Frameworks */,
@@ -141,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				427B73EC2306111D0070C334 /* BestPlacesToLive.app */,
-				42092629233A7B7F00A2587F /* BestPlacesToLiveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,24 +219,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		42092628233A7B7F00A2587F /* BestPlacesToLiveTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42092630233A7B7F00A2587F /* Build configuration list for PBXNativeTarget "BestPlacesToLiveTests" */;
-			buildPhases = (
-				42092625233A7B7F00A2587F /* Sources */,
-				42092626233A7B7F00A2587F /* Frameworks */,
-				42092627233A7B7F00A2587F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4209262F233A7B7F00A2587F /* PBXTargetDependency */,
-			);
-			name = BestPlacesToLiveTests;
-			productName = BestPlacesToLiveTests;
-			productReference = 42092629233A7B7F00A2587F /* BestPlacesToLiveTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		427B73EB2306111D0070C334 /* BestPlacesToLive */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 427B73FE2306111E0070C334 /* Build configuration list for PBXNativeTarget "BestPlacesToLive" */;
@@ -298,10 +248,6 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Lambda;
 				TargetAttributes = {
-					42092628233A7B7F00A2587F = {
-						CreatedOnToolsVersion = 10.3;
-						TestTargetID = 427B73EB2306111D0070C334;
-					};
 					427B73EB2306111D0070C334 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -321,19 +267,11 @@
 			projectRoot = "";
 			targets = (
 				427B73EB2306111D0070C334 /* BestPlacesToLive */,
-				42092628233A7B7F00A2587F /* BestPlacesToLiveTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		42092627233A7B7F00A2587F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		427B73EA2306111D0070C334 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,14 +327,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		42092625233A7B7F00A2587F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4209262C233A7B7F00A2587F /* BestPlacesToLiveTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		427B73E82306111D0070C334 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,14 +362,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		4209262F233A7B7F00A2587F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 427B73EB2306111D0070C334 /* BestPlacesToLive */;
-			targetProxy = 4209262E233A7B7F00A2587F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		427B73F32306111D0070C334 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -460,46 +382,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		42092631233A7B7F00A2587F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = BestPlacesToLiveTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaSchool.BestPlacesToLiveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestPlacesToLive.app/BestPlacesToLive";
-			};
-			name = Debug;
-		};
-		42092632233A7B7F00A2587F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = BestPlacesToLiveTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LambdaSchool.BestPlacesToLiveTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestPlacesToLive.app/BestPlacesToLive";
-			};
-			name = Release;
-		};
 		427B73FC2306111E0070C334 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -657,15 +539,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		42092630233A7B7F00A2587F /* Build configuration list for PBXNativeTarget "BestPlacesToLiveTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42092631233A7B7F00A2587F /* Debug */,
-				42092632233A7B7F00A2587F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		427B73E72306111D0070C334 /* Build configuration list for PBXProject "BestPlacesToLive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
