@@ -68,17 +68,14 @@ class CityDetailViewController: UIViewController {
         savedCitiesController.addSavedCity(savedCity: savedCity) { (loggedInUser, error) in
             if let error = error {
                 DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "Error saving city", message: "\(error)", preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(alertAction)
-                    self.present(alertController, animated: true)
+                    self.presentInformationalAlertController(title: "Error saving city", message: "\(error)")
                 }
             } else {
-                let alertController = UIAlertController(title: "Success!", message: "City was saved.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true)
+                DispatchQueue.main.async {
+                    
+                    self.presentInformationalAlertController(title: "Success!", message: "City has been saved.")
                 print("Saved Cities: \(loggedInUser?.cities as Any)")
+                }
             }
         }
     }

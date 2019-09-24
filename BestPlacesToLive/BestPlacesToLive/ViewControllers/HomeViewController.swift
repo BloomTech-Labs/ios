@@ -133,6 +133,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let cityCategory = networkController.categories[indexPath.item]
             cell.cityCategory = cityCategory
+           
             
             return cell
         }
@@ -142,6 +143,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
         if collectionView == categoryCollectionView {
             let category = networkController.categories[indexPath.item]
+            self.title = category.name
             networkController.fetchCategory(category: category) { (cities, error) in
                 if let error = error {
                     NSLog("Error getting categories to render: \(error)")
@@ -156,6 +158,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     }
                 }
             }
+            let categoryName = category.name.capitalized
+            self.title = categoryName
         }
 
     }
